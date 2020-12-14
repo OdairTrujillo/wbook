@@ -4,7 +4,7 @@
 name: Wbook
 license: GPL3.0
 licenselink: https://github.com/yourname/yourtheme/blob/master/LICENSE
-description: Theme to build html/css web based books.
+description: Theme for build html/css web-based books.
 homepage: http://example.com/
 tags:
   - ebook
