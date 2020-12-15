@@ -1,0 +1,31 @@
+/* Ajustes generales */
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #fff;
+}
+
+/* Regilla simple para un escritorio (dashboard) */
+
+/* Filosofía mobile-first, se diseña por defecto para móviles lo que
+implica usar min-width en lugar de max-width para los media-queries */
+
+/* Asignar instrucciones para el contenedor grid padre, incluyendo
+  los nombres de los elementos hijos distribuidos */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: /* El espacio del sidenav está oculto por defecto en móviles */
+    "header"
+    "main"
+    "footer";
+  height: 100vh;
+}
