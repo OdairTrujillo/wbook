@@ -21,3 +21,8 @@ Then go to https://localhost:1313
 
 # IMPORTANT NOTICE
 This project it is on early develop stage, do not expect that works until this message dissapear.
+
+## Acknowledges
+The web book it is a concept developed by the [SCIO Corporation](https://sciocorp.org). Wbook as
+a HUGO theme it is just a tool developed by [@OdairTrujillo](https://odair.dev) to meet the
+requirements of the concept of a web based book.
