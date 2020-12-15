@@ -1,0 +1,28 @@
+{{ hugo.Generator }} {{/* Meta Tag generator with the used hugo version */}}
+<meta name="description" content="{{ $.Param "description" }}" />
+<meta name="created" content="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
+<meta name="modified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-0700" }}">
+{{ if $.Param "author" }}
+  <meta name="author" content="{{ $.Param "author" }}">
+{{ else if .Site.Params.myname }}
+  <meta name="author" content="{{ .Site.Params.myname }}">
+{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:url" content="{{ .Permalink | absLangURL }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:description" content="{{ .Params "description" }}">
+{{ if $.Param "meta_image" }}
+  {{ with $.Param "meta_image" }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    <meta property="og:image:url" content="{{ . | absURL }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:app:name:iphone" content="{{ $.Site.Title }}">
+    <meta property="twitter:title" content="{{ $.Param "title" }}">
+    <meta property="twitter:description" content="{{ $.Param "description" }}">
+  {{ end }}
+{{ end }}
+<link rel="canonical" href="{{ .Permalink | absLangURL }}">
+<link rel="manifest" href="{{ "manifest.json" | relURL }}">
+<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
+<link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="any" type="image/png" />
