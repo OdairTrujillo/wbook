@@ -1,7 +1,7 @@
 # Wbook, a HUGO theme
 Wbook allows you to build web-based books or Wbooks.
 
-## What is a WebBook or Wbook?
+## What is a WebBook or a Wbook?
 A Wbook is a way of rendering and arranges book contents using the structure and features of modern web sites. A Wbook site improves the reading process of a book, allowing the reader to share chapters of the book, explore contents using a menu just like web-based documentation of software does, and more.
 
 A Wbook has more than you can see on the surface, the HTML structure allows the publisher to register the book to DOI and ISBN databases because it fit the standards of a publication.
