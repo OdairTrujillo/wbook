@@ -1,13 +1,13 @@
-{{ $main_options := (dict "targetPath" "css/main.css" "outputStyle" "compressed") }}
-{{ $main_style := $main_template | resources.ExecuteAsTemplate "main_parsed.scss" . | toCSS $main_options | resources.Minify }}
-<link rel="stylesheet" href="{{ $main_style.RelPermalink }}">
+{{"<!-- Main Stylesheet -->" | safeHTML}}
+{{ $styles := resources.Get "css/main.css"}}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
 {{ if .Site.Params.custom_css }}
-{{ range .Site.Params.custom_css }}
-  {{ $custom_template := resources.Get . }}
-  {{ if $custom_template }}
-    {{ $custom_style := $custom_template | resources.ToCSS | resources.Minify }}
-    <link rel="stylesheet" href="{{ $custom_style.RelPermalink }}">
+  {{ range .Site.Params.custom_css }}
+    {{ $custom_template := resources.Get . }}
+    {{ if $custom_template }}
+      {{ $custom_style := $custom_template }}
+      <link rel="stylesheet" href="{{ $custom_style.RelPermalink }}">
+    {{ end }}
   {{ end }}
-{{ end }}
 {{ end }}
