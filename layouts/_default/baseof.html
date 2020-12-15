@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
+<html lang="{{ .Site.Language.Lang }}" dir="{{ $.Param "languagedir" | default "ltr" }}">
+
+<head prefix="og: https://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{ partial "head/meta" . }}
+    <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
+    {{ partial "head/styles" . }}
+    {{ partial "head/custom-head" . }}
+</head>
+
+<body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">
+    <div id="container" class="grid-container">
+        <div class="wrapper" data-type="{{ .Type }}" data-kind="{{ .Kind }}">
+            {{ partial "navbar/site-nav" . }}
+            {{ partial "header/site-header" . }}
+            {{ block "main" . }}{{ end }}
+            {{ partial "body/custom-body" . }}
+            {{ partial "footer/site-footer" . }}
         </div>
-        {{- partial "footer.html" . -}}
-    </body>
+    </div>
+</body>
+
 </html>
