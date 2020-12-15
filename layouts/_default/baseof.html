@@ -11,12 +11,12 @@
     {{ partial "head/custom-head" . }}
 </head>
 
-<body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">
+<body id="root">
     <div id="container" class="grid-container">
         <div class="wrapper" data-type="{{ .Type }}" data-kind="{{ .Kind }}">
-            {{ partial "navbar/site-nav" . }}
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}
+            {{ partial "sidebar/sidebar-home" . }}
             {{ partial "body/custom-body" . }}
             {{ partial "footer/site-footer" . }}
         </div>

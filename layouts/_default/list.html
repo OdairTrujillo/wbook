@@ -1,20 +1,9 @@
 {{ define "main" }}
-{{ partial "navbar.html" . }}
-{{ partial "navbar-clone.html" . }}
-
-{{ $blog := .Site.Params.blog }}
-{{ $title := index $blog "title" }}
-{{ $subtitle := index $blog "subtitle" }}
-
-{{ "<!-- Start Blog Section -->" | safeHTML }}
+{{ "<!-- List of chapters -->" | safeHTML }}
 
 <section class="section is-medium">
   <div class="container">
-    <div class="is-centered-tablet-portrait mb-40">
-      <h1 class="title section-title" style="margin-bottom: 1.7rem">{{ $title }}</h1>
-      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
-      <div class="divider"></div>
-    </div>
+    <p>This is the section to show the list of chapters</p>
     <div class="columns is-multiline">
       {{ $paginator := .Paginate .Data.Pages }}
       {{ range $paginator.Pages }}
@@ -29,5 +18,5 @@
   </div>
 </section>
 
-{{ "<!-- /blog -->" | safeHTML }}
+{{ "<!-- /chapters -->" | safeHTML }}
 {{ end }}

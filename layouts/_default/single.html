@@ -1,67 +1,12 @@
 {{ define "main" }}
-{{ partial "navbar.html" . }}
-{{ partial "navbar-clone.html" . }}
 
 <section class="section is-medium">
-  <div class="container" style="max-width: 800px">
-    <div class="columns">
-      <div class="column is-centered-tablet-portrait">
-        <p class="title section-title" style="margin-bottom: 1.7rem">{{ .Title }}</p>
-        <p class="subtitle is-6 is-muted" style="line-height: 1.6">
-          {{ dateFormat "Monday, Jan 2, 2006" .Date }}<br>
-          Autor:&nbsp;<a href="{{ "/author/" | relLangURL }}{{ .Params.Author | urlize }}/">{{ .Params.Author }}</a>
-        </p>
-        <div class="divider"></div>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-11">
-        <div class="tags is-centered">
-          {{ if .Params.categories }}
-          <strong class="tag is-medium">Categorías:</strong>
-          {{ range $key, $value := .Params.categories }}
-          <a class="tag is-medium" href="{{ "/categories/" }}{{ $value | urlize }}">{{ $value }}</a>
-          {{ end }}
-          {{ end }}
-        </div>
-        <div class="card is-rounded-1">
-          <figure class="image" style="padding: 0.4rem">
-            <img src="{{ .Params.Image | relURL }}" alt="Imágen del Post">
-          </figure>
-        </div>
-      </div>
-    </div>
-    <div class="main-content">
-      <div class="sticky-sidebar">
-        <div class="sidebar__inner card is-rounded-2">
-          <div style="padding: 0.5rem">
-            <strong>Contenido:</strong>
-            <div class="toc is-size-7" style="padding: 0.4rem">
-              {{ .TableOfContents }}
-            </div>
-            <div class="tags">
-              {{ if .Params.tags }}
-              <strong>Etiquetas:</strong>
-              {{ range $key, $value := .Params.tags }}
-              <a class="tag is-size-7" href="{{ "/tags/" }}{{ $value | urlize }}">{{ $value }}</a>
-              {{ end }}
-              {{ end }}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content is-justified blog">
-        {{ .Content }}
-      </div>
-    </div>
-    {{ if .Params.post_share }}
-    {{ partial "post-share.html" . }}
-    {{ end }}
-    {{ if .Params.comments }}
-    <div class="mt-20">
-      {{ template "_internal/disqus.html" . }}
-    </div>
-    {{ end }}
+  <p>This is the section of the single template</p>
+  <div class="primary-content">
+    <p>{{ .Title }}</p>
+  </div>
+  <div class="secondary-content">
+    <p>{{ .Content }}</p>
   </div>
 </section>
 {{ end }}
