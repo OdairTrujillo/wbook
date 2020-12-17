@@ -1,12 +1,13 @@
 {{ define "main" }}
-
-<section class="section is-medium">
-  <p>This is the section of the single template</p>
+<section class="main">
   <div class="primary-content">
-    <p>{{ .Title }}</p>
+    <p class="series-title">{{ .Params.series }}</p>
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Content }}</p>
   </div>
   <div class="secondary-content">
-    <p>{{ .Content }}</p>
+    <p>{{ .Params.secondary_title | markdownify }}</p>
+    <p>{{ .Params.secondary_content | markdownify }}</p>
   </div>
 </section>
 {{ end }}

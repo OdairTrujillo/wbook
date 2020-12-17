@@ -1,7 +1,6 @@
 {{ hugo.Generator }} {{/* Meta Tag generator with the used hugo version */}}
 <meta name="description" content="{{ $.Param "description" }}" />
 <meta name="created" content="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
-<meta name="modified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-0700" }}">
 {{ if $.Param "author" }}
   <meta name="author" content="{{ $.Param "author" }}">
 {{ else if .Site.Params.myname }}
@@ -11,7 +10,7 @@
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:url" content="{{ .Permalink | absLangURL }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:description" content="{{ .Params "description" }}">
+<meta property="og:description" content="{{ .Params.description }}">
 {{ if $.Param "meta_image" }}
   {{ with $.Param "meta_image" }}
     <meta property="og:image" content="{{ . | absURL }}">

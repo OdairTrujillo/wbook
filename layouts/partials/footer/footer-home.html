@@ -1,0 +1,7 @@
+<footer class="footer">
+  {{ range $.Param "footerLinks" }}
+      {{ if .link }}
+  <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
+      {{ end }}
+  {{ end }}
+</footer>

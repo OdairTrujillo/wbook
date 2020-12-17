@@ -1,0 +1,7 @@
+{{ if eq (substr (.Get 1) 0 4) "http" }}
+  <span class="cite-text"><a class="cite-title" href="{{ .Get 1 }}" target="blank">{{ .Get 0 }}</a></span>
+{{ else }}
+  <span class="cite-text">{{ .Get 1 | markdownify }}</span>
+{{ end }}
+<span class="cite-title">{{ .Get 0 }}</span>
+{{- /* This comment removes trailing newlines. */ -}}

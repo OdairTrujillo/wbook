@@ -4,7 +4,7 @@
     {{ range $name, $path := $.Param "socialOptions" }}
       {{ if $path }}
       <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}">
-        {{ partial (print "svgs/social/" $name ".svg") (dict "width" 32 "height" 32) }}
+        {{ partial (print "svg/social/" $name ".svg") (dict "width" 32 "height" 32) }}
       </a>
       {{ end }}
     {{ end }}

@@ -1,0 +1,12 @@
+<script>
+// Agregar evento click a los elementos cite-title
+const citeTitleListEl = document.getElementsByClassName("cite-title");
+const citeBoxEl = document.getElementById("cite-box");
+
+for (let i = 0; i < citeTitleListEl.length; i++) {
+  citeTitleListEl[i].addEventListener("click", function() {
+    const citeTextEl = this.previousElementSibling;
+    citeBoxEl.innerHTML = citeTextEl.innerHTML;
+  });
+}
+</script>

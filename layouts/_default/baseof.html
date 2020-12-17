@@ -12,15 +12,12 @@
 </head>
 
 <body id="root">
-    <div id="container" class="grid-container">
-        <div class="wrapper" data-type="{{ .Type }}" data-kind="{{ .Kind }}">
+    <div id="container" class="grid-container" data-type="{{ .Type }}" data-kind="{{ .Kind }}">
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}
-            {{ partial "sidebar/sidebar-home" . }}
-            {{ partial "body/custom-body" . }}
-            {{ partial "footer/site-footer" . }}
-        </div>
+            {{ partial "sidebar/sidebar-home.html" . }}
+            {{ partial "footer/footer-home.html" . }}
     </div>
 </body>
-
+{{ partial "scripts/cite.html" . }}
 </html>
