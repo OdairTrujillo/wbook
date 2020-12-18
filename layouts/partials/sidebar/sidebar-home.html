@@ -1,20 +1,23 @@
 <section class="sidebar">
-  <ol class="sidebar__toc">
-    <li>Series</li>
-    <ul>
-      <li>Hombres de fe vrs líderes</li>
-      <ol>
-        <li>Día 1</li>
-        <li>Día 2</li>
-        <li>Día 3</li>
-      </ol>
-      <li>El árbol de vida</li>
-      <ol>
-        <li>Día 1</li>
-        <li>Día 2</li>
-        <li>Día 3</li>
-      </ol>
-    </ul>
-  </ol>
+  <div class="sidebar__toc">
+    {{ $filteredPages := .Site.RegularPages }}
+    {{ range $.Param "notAllowedTypesInArchive" }}
+      {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+    {{ end }}
+
+  {{ if gt (len $filteredPages) 0 }}
+    {{ range $filteredPages.GroupByParam "serie" }}
+    <h3>{{ .Key }}</h3>
+      <ul>
+        {{ range .Pages }}
+        <li>{{ .Title }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ else }}
+    {{ i18n "no-contents" | default "There is nothing to display" }}
+  {{ end }}
+
+  </div>
   {{ partial "sidebar/sidebar-cite.html" . }}
 </section>
