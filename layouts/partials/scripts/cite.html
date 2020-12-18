@@ -6,7 +6,7 @@ const citeBoxEl = document.getElementById("cite-box");
 for (let i = 0; i < citeTitleListEl.length; i++) {
   citeTitleListEl[i].addEventListener("click", function() {
     const citeTextEl = this.previousElementSibling;
-    citeBoxEl.innerHTML = "<p>" + citeTextEl.innerHTML + "</p>";
+    citeBoxEl.innerHTML = citeTextEl.innerHTML;
   });
 }
 </script>
