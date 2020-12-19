@@ -1,24 +1,27 @@
 <section class="sidebar">
   <div class="sidebar__toc">
-  {{/* Filter pages that will not be part of the TOC */}}
+  {{/* Filtering pages that will not be part of the TOC */}}
   {{ $filteredPages := .Site.RegularPages }}
   {{ range $.Param "notAllowedTypesInArchive" }}
     {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
   {{ end }}
 
   {{ if gt (len $filteredPages) 0 }}
-    {{ range $filteredPages.GroupByParam "serie"}}
-    <p class="sidebar__toc-serie">{{ substr .Key 3 }}</p>
-    {{/* This range function will get the directory of the first grouped page to use it to get the _index.md file */}}
-      {{ range .Pages | first 1 }}
-        {{ $currentPath := .File.Dir }}
-    <p class="sidebar__toc-caltitle">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
+    {{ range $filteredPages.GroupByParam "serie" }}
+      {{/* Removing trainling zero */}}
+      {{ $key := .Key }}
+      {{ if eq (substr $key 0 1) "0" }}
+        {{ $key = substr $key 1 }}
       {{ end }}
+    <p class="sidebar__toc-serie">{{ $key }}</p>
+      {{/* This range function will get the directory of the first grouped page to use it to get the _index.md file */}}
+        {{ range .Pages | first 1 }}
+          {{ $currentPath := .File.Dir }}
+    <p class="sidebar__toc-caltitle">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
+        {{ end }}
     <div class="sidebar__toc-calendar">
-      {{ $dayOfMonth := 1 }}
-      {{ range .Pages.ByDate }}
-      <a class="sidebar__toc-item" href="{{ .Permalink }}">{{ $dayOfMonth }}</a>
-      {{ $dayOfMonth = add $dayOfMonth 1 }}
+      {{ range .Pages.ByParam "toc_index" }}
+      <a class="sidebar__toc-item" href="{{ .Permalink }}">{{ .Params.toc_index }}</a>
       {{ end }}
     </div>
       {{ end }}

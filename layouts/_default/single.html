@@ -1,6 +1,10 @@
 {{ define "main" }}
 <section class="main">
-  <p class="series-title">{{ substr .Params.serie 3 }}</p>
+  {{ $serie := .Params.serie }}
+  {{ if eq (substr $serie 0 1) "0" }}
+    {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
+  {{ end }}
+  <p class="series-title">{{ $serie }}</p>
   <div class="primary-content">
     <h2>{{ .Title }}</h2>
     <p>{{ .Content }}</p>
