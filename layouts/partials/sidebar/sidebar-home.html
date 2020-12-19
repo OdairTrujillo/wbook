@@ -15,8 +15,10 @@
     <p class="sidebar__toc-caltitle">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
       {{ end }}
     <div class="sidebar__toc-calendar">
+      {{ $dayOfMonth := 1 }}
       {{ range .Pages.ByDate }}
-      <a class="sidebar__toc-item" href="{{ .Permalink }}">{{ .Params.subtitle }}</a>
+      <a class="sidebar__toc-item" href="{{ .Permalink }}">{{ $dayOfMonth }}</a>
+      {{ $dayOfMonth = add $dayOfMonth 1 }}
       {{ end }}
     </div>
       {{ end }}
