@@ -164,6 +164,7 @@ sup {
   width: 90%;
   height: 300px;
   padding: 20px 10px;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -172,6 +173,7 @@ sup {
   align-items: center;
   justify-content: space-between;
   background-color: #d99191;
+  padding: 0 10px;
 }
 
 .cite-text {
