@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="main">
-  <p class="series-title">{{ .Params.serie }}</p>
+  <p class="series-title">{{ substr .Params.serie 3 }}</p>
   <div class="primary-content">
     <h2>{{ .Title }}</h2>
     <p>{{ .Content }}</p>
