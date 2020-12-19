@@ -109,7 +109,6 @@ sup {
   overflow-y: scroll;
 }
 
-
 .sidebar {
   grid-area: sidebar;
   display: flex;
@@ -120,18 +119,50 @@ sup {
 }
 
 .sidebar__toc {
-  width: 100%;
-  height: 300px;
+  border: 1px solid;
+  width: 90%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.sidebar__toc-serie {
+  text-align: left;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.sidebar__toc-calendar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  flex-flow: row wrap;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.sidebar__toc-caltitle {
+  text-align: center;
+  line-height: normal;
+  padding: 0;
+}
+
+.sidebar__toc-item {
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  margin: 2px;
+  padding-top: 4px;
+  border: 1px solid;
 }
 
 .sidebar__cite {
-  border-style: solid;
-  width: 100%;
-  height: 300px;
-  border-width: 1px;
   font-style: italic;
   text-align: center;
   overflow-y: scroll;
+  border-style: solid;
+  border-width: 1px;
+  width: 90%;
+  height: 300px;
   padding: 20px 10px;
 }
 
