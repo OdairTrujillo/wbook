@@ -29,8 +29,34 @@ p {
   line-height: 1.6;
 }
 
+/* Superscript elements */
 sup {
   font-weight: bold;
+}
+
+/* disable underline in links */
+a {
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
 }
 
 /* SPECIFIC RULES */
@@ -47,8 +73,8 @@ sup {
     "sidebar main"
     "footer footer";
   height: 100vh;
-  min-height: 0;  /* NEW */
-  min-width: 0;   /* NEW; needed for Firefox */
+  min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+  min-width: 0; /* Necessary in Firefox  */
 }
 
 /* The header is a flex container, with the elements separated to the extremes, it is
@@ -58,7 +84,7 @@ sup {
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* This will separete the flex items to the extremes*/
   background-color: #9191d9;
   padding: 0 16px;
 }
@@ -80,6 +106,8 @@ sup {
     "series-title series-title series-title"
     "primary-content primary-content secondary-content";
   background-color: #8fd4d9;
+  min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+  min-width: 0; /* Necessary in Firefox  */
 }
 
 /* The series title will ocupy the whole width of the main container. This element
@@ -94,19 +122,22 @@ sup {
   padding: 16px;
 }
 
-/* The primary-content container has the {{ .Content }} variable of the built page */
+/* The primary-content container will receive the {{ .Content }} variable in Hugo */
 .primary-content {
   grid-area: primary-content;
   padding: 20px;
+  height: 100%;
+  min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
   overflow-y: scroll;
-  height: 40rem;
 }
 
-/* The secondary-content has the {{ .Param.description }} that comes from the
+/* The secondary-content will receive the {{ .Param.description }} that comes from the
    front-matter of the page.md */
 .secondary-content {
   grid-area: secondary-content;
   padding: 20px;
+  height: 100%;
+  min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
   overflow-y: scroll;
 }
 
@@ -117,17 +148,15 @@ sup {
   align-items: center;
   justify-content: space-between;
   background-color: #91d9a3;
-  min-width: 0;      /* NEW; needed for Firefox */
+  padding: 10px;
+  min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
 }
 
 .sidebar__toc {
-  flex-basis: auto;
   border: 1px solid;
-  width: 90%;
-  margin: 10px 0;
   padding: 10px;
+  margin-bottom: 10px;
   overflow-y: scroll;
-  max-height: 70%;
 }
 
 .sidebar__toc-serie {
@@ -143,15 +172,16 @@ sup {
 }
 
 .serie--active {
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255,255,255, 0.2); /* To highlight the active serie */
 }
 
-.calendar-wrapper {
+.sidebar__toc-calendar-wrapper {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
 
+/* This is the calendar as such. */
 .sidebar__toc-calendar {
   display: flex;
   align-items: flex-start;
@@ -163,7 +193,6 @@ sup {
 
 .sidebar__toc-caltitle {
   text-align: center;
-  line-height: normal;
   padding: 0;
 }
 
@@ -174,18 +203,18 @@ sup {
   margin: 2px;
   padding-top: 4px;
   border: 1px solid;
+  border-radius: 50%
+
 }
 
 .sidebar__cite {
   font-style: italic;
   text-align: center;
+  border: 1px solid;
+  padding: 10px;
+  height: 210px;
+  width: 100%;
   overflow-y: scroll;
-  border-style: solid;
-  border-width: 1px;
-  width: 90%;
-  min-height: 30%;
-  padding: 20px 10px;
-  margin-bottom: 10px;
 }
 
 .footer {

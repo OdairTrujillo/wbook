@@ -12,6 +12,7 @@ for (var i = 0; i < sidebarListEl.length; i++) {
       setCookie("active-item", "", 365)
     } else {
       hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
+      // TODO: whatch for the item of the calendar clicked to store the serie active
       setCookie("active-item", this.innerText, 365)
     }
   });
