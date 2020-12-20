@@ -141,6 +141,7 @@ a:active {
   overflow-y: scroll;
 }
 
+/* Another child element of the css grid base container */
 .sidebar {
   grid-area: sidebar;
   display: flex;
@@ -152,6 +153,7 @@ a:active {
   min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
 }
 
+/* The child element of the flexbox sidebar, is the container of the whole TOC */
 .sidebar__toc {
   border: 1px solid;
   padding: 10px;
@@ -175,6 +177,7 @@ a:active {
   background-color: rgba(255,255,255, 0.2); /* To highlight the active serie */
 }
 
+/* The wrapper of the calendar is used for hide the whole calendar */
 .sidebar__toc-calendar-wrapper {
   max-height: 0px;
   overflow: hidden;
@@ -191,7 +194,7 @@ a:active {
   padding: 10px;
 }
 
-.sidebar__toc-caltitle {
+.sidebar__toc-calendar-title {
   text-align: center;
   padding: 0;
 }
@@ -206,7 +209,7 @@ a:active {
   border-radius: 50%
 
 }
-
+/* This child element of the flexbox sidebiar, is the container of cite box. */
 .sidebar__cite {
   font-style: italic;
   text-align: center;
@@ -217,15 +220,8 @@ a:active {
   overflow-y: scroll;
 }
 
-.footer {
-  grid-area: footer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #d99191;
-  padding: 0 10px;
-}
-
+/* This class will allow to have cite text invisible, that will be taken by the
+   javascript code that handles clicks on the cite-title elements  */
 .cite-text {
   display: none;
 }
@@ -243,4 +239,13 @@ a:active {
   text-align: center;
   font-style: italic;
   padding-bottom: 2rem;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d99191;
+  padding: 0 10px;
 }
