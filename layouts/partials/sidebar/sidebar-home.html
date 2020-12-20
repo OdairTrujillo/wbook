@@ -18,7 +18,7 @@
         {{ range .Pages | first 1 }}
           {{ $currentPath := .File.Dir }}
     <div class="sidebar__toc-calendar-wrapper">
-    <p class="sidebar__toc-caltitle">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
+    <p class="sidebar__toc-calendar-title">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
         {{ end }}
     <div class="sidebar__toc-calendar">
       {{ range .Pages.ByParam "toc_index" }}
