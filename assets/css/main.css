@@ -46,7 +46,9 @@ sup {
     "header header"
     "sidebar main"
     "footer footer";
-  height: 100vh; /* This rule make base container to fit the height of the broser window */
+  height: 100vh;
+  min-height: 0;  /* NEW */
+  min-width: 0;   /* NEW; needed for Firefox */
 }
 
 /* The header is a flex container, with the elements separated to the extremes, it is
@@ -72,7 +74,6 @@ sup {
 .main {
   grid-area: main;
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50px 1fr;
   grid-template-areas:
@@ -116,19 +117,39 @@ sup {
   align-items: center;
   justify-content: space-between;
   background-color: #91d9a3;
+  min-width: 0;      /* NEW; needed for Firefox */
 }
 
 .sidebar__toc {
+  flex-basis: auto;
   border: 1px solid;
   width: 90%;
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 10px;
+  overflow-y: scroll;
+  max-height: 70%;
 }
 
 .sidebar__toc-serie {
   text-align: left;
   font-weight: bold;
   line-height: normal;
+  cursor: pointer;
+  color: darkcyan;
+}
+
+.sidebar__toc-serie:hover {
+  color: DarkTurquoise;
+}
+
+.serie--active {
+  background-color: rgba(255,255,255, 0.2);
+}
+
+.calendar-wrapper {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 .sidebar__toc-calendar {
@@ -146,7 +167,7 @@ sup {
   padding: 0;
 }
 
-.sidebar__toc-item {
+.sidebar__toc-calendar-item {
   text-align: center;
   width: 25px;
   height: 25px;
@@ -162,7 +183,7 @@ sup {
   border-style: solid;
   border-width: 1px;
   width: 90%;
-  height: 300px;
+  min-height: 30%;
   padding: 20px 10px;
   margin-bottom: 10px;
 }

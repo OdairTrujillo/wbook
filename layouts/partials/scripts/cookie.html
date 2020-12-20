@@ -1,0 +1,39 @@
+<script>
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let itemText=getCookie("active-item");
+  if (itemText != "") {
+    const items = document.getElementsByClassName("sidebar__toc-serie");
+    for (let i=0; i < items.length; i++) {
+      if (items[i].innerText == itemText) {
+        items[i].classList.toggle("serie--active");
+        // Obtener el siguiente elemento hermano y cambiar atributo max-height
+        const hiddenContent = items[i].nextElementSibling;
+        hiddenContent.style.transition = "none";
+        if (hiddenContent.style.maxHeight) {
+          hiddenContent.style.maxHeight = null;
+        } else {
+          hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
+        }
+      }
+    }
+  } else {
+     console.log("No se escribió ninguna cookie");
+     }
+  }
+</script>
