@@ -33,7 +33,7 @@ p {
 
 /* Superscript elements */
 sup {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: bold;
 }
 
@@ -72,7 +72,7 @@ a:active {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px minmax(0 1fr) 1.5fr 30px; /* minmax sets the sidebar to shirnk when children does */
+  grid-template-rows: 50px 0.8fr 1.5fr 30px; /* minmax sets the sidebar to shirnk when children does */
   grid-template-areas:
     "header"
     "sidebar"
@@ -156,7 +156,7 @@ a:active {
   align-items: center;
   justify-content: space-between;
   background-color: #91d9a3;
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
   min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
 }
 
@@ -225,6 +225,21 @@ a:active {
   text-align: center;
   width: 100%;
   margin-top: 10px;
+  transition: padding 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar__cite-button-hide {
+  position: sticky;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 50%;
+  padding: 2px 6px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
 }
 
 /* This class will allow to have cite text invisible, that will be taken by the
@@ -277,7 +292,7 @@ a:active {
   }
 
   sup {
-    font-size: 18px;
+    font-size: 11px;
     font-weight: bold;
   }
 
@@ -320,5 +335,10 @@ a:active {
     height: 210px;
     border: 1px solid;
     overflow-y: auto;
+    margin-bottom: 5px;
+  }
+
+  .sidebar__cite-button-hide {
+    display: none;
   }
 }

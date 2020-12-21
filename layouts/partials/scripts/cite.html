@@ -2,6 +2,9 @@
 // Add event click to cite-title
 const citeTitleListEl = document.getElementsByClassName("cite-title");
 const citeBoxEl = document.getElementById("cite-box");
+const buttonHideEl = document.getElementById("button-hide");
+
+const citeBoxElHeight = citeBoxEl.scrollHeight + "px";
 
 for (let i = 0; i < citeTitleListEl.length; i++) {
   // Add the event listener
@@ -9,27 +12,33 @@ for (let i = 0; i < citeTitleListEl.length; i++) {
     // The previous element sibling is the text of the cite
     const citeTextEl = this.previousElementSibling;
     // Populating the cite-box element with the html content of the sibling
-    citeBoxEl.innerHTML = citeTextEl.innerHTML;
-    // Switch the cite-box max-height property among others.
-    if (citeBoxEl.style.maxHeight) {
-      citeBoxEl.style.maxHeight = null;
-      citeBoxEl.style.minHeight = null;
-      citeBoxEl.style.padding = null;
-      citeBoxEl.style.height = null;
-      citeBoxEl.style.border = null;
-      citeBoxEl.style.overflowY = null;
-      citeBoxEl.style.marginTop = 0;
-      citeBoxEl.innerHTML = null;
-    } else {
-      citeBoxEl.style.maxHeight = citeBoxEl.scrollHeight + "px";
-      citeBoxEl.style.minHeight = "100px";
-      citeBoxEl.style.padding = "10px";
-      citeBoxEl.style.height = "210px";
-      citeBoxEl.style.border = "1px solid";
-      citeBoxEl.style.overflowY = "auto";
-      citeBoxEl.style.marginTop = "10px";
-    }
+    // but with a delay that puts the text after the ease transition
+    setTimeout(() => {  citeBoxEl.innerHTML = citeTextEl.innerHTML; }, 200);
+    if (buttonHideEl.style.display != "none") {
+    citeBoxEl.style.maxHeight = citeBoxElHeight;
+    citeBoxEl.style.minHeight = "100px";
+    citeBoxEl.style.padding = "10px";
+    citeBoxEl.style.height = "210px";
+    citeBoxEl.style.border = "1px solid";
+    citeBoxEl.style.overflowY = "auto";
+    citeBoxEl.style.marginTop = "10px";
+  }
   });
+}
+
+function hideCiteBox() {
+  if (buttonHideEl.style.display != "none") {
+        if (!buttonHideEl.style.display) {
+    citeBoxEl.style.maxHeight = null;
+    citeBoxEl.style.minHeight = null;
+    citeBoxEl.style.padding = "0";
+    citeBoxEl.style.height = null;
+    citeBoxEl.style.border = null;
+    citeBoxEl.style.overflowY = null;
+    citeBoxEl.style.marginTop = 0;
+    citeBoxEl.innerHTML = "";
+  }
+  }
 }
 
 </script>
