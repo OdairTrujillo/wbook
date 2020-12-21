@@ -1,12 +1,31 @@
 <script>
-// Agregar evento click a los elementos cite-title
+// Add event click to cite-title
 const citeTitleListEl = document.getElementsByClassName("cite-title");
 const citeBoxEl = document.getElementById("cite-box");
 
 for (let i = 0; i < citeTitleListEl.length; i++) {
+  // Add the event listener
   citeTitleListEl[i].addEventListener("click", function() {
+    // The previous element sibling is the text of the cite
     const citeTextEl = this.previousElementSibling;
+    // Populating the cite-box element with the html content of the sibling
     citeBoxEl.innerHTML = citeTextEl.innerHTML;
+    // Switch the cite-box max-height property among others.
+    if (citeBoxEl.style.maxHeight) {
+      citeBoxEl.style.maxHeight = null;
+      citeBoxEl.style.padding = null;
+      citeBoxEl.style.height = null;
+      citeBoxEl.style.border = null;
+      citeBoxEl.style.overflowY = null;
+      citeBoxEl.innerHTML = null;
+    } else {
+      citeBoxEl.style.maxHeight = citeBoxEl.scrollHeight + "px";
+      citeBoxEl.style.padding = "10px";
+      citeBoxEl.style.height = "210px";
+      citeBoxEl.style.border = "1px solid";
+      citeBoxEl.style.overflowY = "auto";
+    }
   });
 }
+
 </script>

@@ -218,14 +218,13 @@ a:active {
 
 }
 /* This child element of the flexbox sidebiar, is the container of cite box. */
+/* It is hidden on mobiles, but it appears when a cite-title is clicked */
 .sidebar__cite {
+  max-height: 0px;
+  transition: max-height 0.2s ease-out;
   font-style: italic;
   text-align: center;
-  border: 1px solid;
-  padding: 10px;
-  height: 210px;
   width: 100%;
-  overflow-y: auto;
 }
 
 /* This class will allow to have cite text invisible, that will be taken by the
@@ -311,5 +310,15 @@ a:active {
 
   .center-italic {
     padding-bottom: 2rem;
+  }
+
+  /* This child element of the flexbox sidebiar, is the container of cite box. */
+  /* It is hidden on mobiles, but it appears when a cite-title is clicked */
+  .sidebar__cite {
+    max-height: none;
+    padding: 10px;
+    height: 210px;
+    border: 1px solid;
+    overflow-y: auto;
   }
 }
