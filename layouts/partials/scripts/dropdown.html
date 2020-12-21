@@ -1,27 +1,33 @@
 <script>
-// Agregar evento click a los dropdown-btn
+// Add event click to series title.
+
+// Getting all elements
 const sidebarListEl = document.getElementsByClassName("sidebar__toc-serie");
 
-for (var i = 0; i < sidebarListEl.length; i++) {
+// Iterating over the array of elements to add the event listener.
+for (let i = 0; i < sidebarListEl.length; i++) {
   sidebarListEl[i].addEventListener("click", function() {
     this.classList.toggle("serie--active");
-    // Obtener el siguiente elemento hermano y cambiar atributo max-height
+    // Get the next sibbling to change max-height
     const hiddenContent = this.nextElementSibling;
     if (hiddenContent.style.maxHeight) {
       hiddenContent.style.maxHeight = null;
-      setCookie("active-item", "", 365)
+      setCookie("active-item", "", 365) // Erase the value of the cookie.
     } else {
       hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
       // TODO: whatch for the item of the calendar clicked to store the serie active
+      // Store the cookie that is the serie in use.
       setCookie("active-item", this.innerText, 365)
     }
   });
 }
 
 function setCookie(cname, cvalue, exdays) {
+  // Calculating the expire date
   let d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires=" + d.toGMTString();
+  // Setting the cookie.
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 </script>
