@@ -78,7 +78,7 @@ a:active {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 0.8fr 1.5fr 30px; /* minmax sets the sidebar to shirnk when children does */
+  grid-template-rows: 50px 1fr 1fr 30px; /* minmax sets the sidebar to shirnk when children does */
   grid-template-areas:
     "header"
     "sidebar"
@@ -115,6 +115,7 @@ a:active {
   justify-content: space-between;
   background-color: #91d9a3;
   padding: 10px 10px 5px 10px;
+  max-height: 250px;
 }
 
 /* The child element of the flexbox sidebar, is the container of the whole TOC */
@@ -296,6 +297,12 @@ javascript code that handles clicks on the cite-title elements  */
       "header header"
       "sidebar main"
       "footer footer";
+  }
+
+  .sidebar {
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
   }
 
   /* The main container is a css grid, it is located into the single.html layout.
