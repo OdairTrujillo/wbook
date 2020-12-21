@@ -72,7 +72,7 @@ a:active {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 1.5fr 30px;
+  grid-template-rows: 50px minmax(0 1fr) 1.5fr 30px; /* minmax sets the sidebar to shirnk when children does */
   grid-template-areas:
     "header"
     "sidebar"
@@ -162,9 +162,9 @@ a:active {
 
 /* The child element of the flexbox sidebar, is the container of the whole TOC */
 .sidebar__toc {
+  flex-grow: 1;
   border: 1px solid;
   padding: 10px;
-  margin-bottom: 10px;
   width: 100%;
   overflow-y: auto;
 }
@@ -221,10 +221,10 @@ a:active {
 /* It is hidden on mobiles, but it appears when a cite-title is clicked */
 .sidebar__cite {
   max-height: 0px;
-  transition: max-height 0.2s ease-out;
   font-style: italic;
   text-align: center;
   width: 100%;
+  margin-top: 10px;
 }
 
 /* This class will allow to have cite text invisible, that will be taken by the

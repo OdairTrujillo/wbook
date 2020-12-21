@@ -13,17 +13,21 @@ for (let i = 0; i < citeTitleListEl.length; i++) {
     // Switch the cite-box max-height property among others.
     if (citeBoxEl.style.maxHeight) {
       citeBoxEl.style.maxHeight = null;
+      citeBoxEl.style.minHeight = null;
       citeBoxEl.style.padding = null;
       citeBoxEl.style.height = null;
       citeBoxEl.style.border = null;
       citeBoxEl.style.overflowY = null;
+      citeBoxEl.style.marginTop = 0;
       citeBoxEl.innerHTML = null;
     } else {
       citeBoxEl.style.maxHeight = citeBoxEl.scrollHeight + "px";
+      citeBoxEl.style.minHeight = "100px";
       citeBoxEl.style.padding = "10px";
       citeBoxEl.style.height = "210px";
       citeBoxEl.style.border = "1px solid";
       citeBoxEl.style.overflowY = "auto";
+      citeBoxEl.style.marginTop = "10px";
     }
   });
 }
