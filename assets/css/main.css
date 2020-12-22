@@ -122,6 +122,14 @@ a:active {
   color: var(--textHeaderColor);
 }
 
+.header__image-left {
+  display: none;
+}
+
+.header__image-right {
+  display: none;
+}
+
 .header__brand-title {
   display: inline-block;
 }
@@ -168,10 +176,13 @@ a:active {
 /* The child element of the flexbox sidebar, is the container of the whole TOC */
 .sidebar__toc {
   flex-grow: 1;
-  border: 1px solid;
   padding: 10px;
   width: 100%;
   overflow-y: auto;
+}
+
+.sidebar__toc-icon {
+
 }
 
 .sidebar__toc-serie {
@@ -359,8 +370,11 @@ javascript code that handles clicks on the cite-title elements  */
 /* Screens over 750px like tablets and desktops */
 @media only screen and (min-width: 750px) {
   /* GENERAL RULES */
+  body {
+  }
+
   h1, h2 {
-    font-size: 18px;
+    font-size: 20px;
     padding: 2rem 1rem;
   }
 
@@ -382,6 +396,57 @@ javascript code that handles clicks on the cite-title elements  */
 
   .center-italic {
     padding-bottom: 2rem;
+  }
+
+  /* SPECIFIC RULES */
+
+  /* The header is a flex container, with the elements separated to the extremes, it is
+     located into the baseof.html file. The parameter grid-area assigns a name to the
+     header class inside de css grid (.grid-container)*/
+  .header {
+    background-image: url("../images/header_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 8px;
+  }
+
+  .header__image-left {
+    display: block;
+    position: fixed;
+    top: 0;
+    left:0;
+  }
+
+  .header__image-right {
+    display: block;
+    position: fixed;
+    top: 0;
+    right:0;
+  }
+
+  .header__brand-title > p {
+    font-size: 16px;
+    margin-left: 80px;
+  }
+
+  .header__book-title > p {
+    font-size: 42px;
+  }
+
+  .header__book-title > img {
+    display: block;
+    margin: 0 auto;
+    width: 72px;
+  }
+
+  .header__brand-logo {
+    display: inline-block;
+    text-align: right;
+    margin-right: 80px;
+  }
+
+  .header__brand-logo img {
+    width: 70%;
   }
 
   /* The base container is a css grid, it is located into the baseof.html layout.
