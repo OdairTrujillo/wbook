@@ -10,7 +10,10 @@
     <p>{{ .Content }}</p>
   </div>
   <div class="secondary-content">
-    <p>{{ .Params.secondary_title | markdownify }}</p>
+    <p>
+      <img src="{{ .Site.Params.leftAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration">
+      {{ .Params.secondary_title | markdownify }}
+      <img src="{{ .Site.Params.rightAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration"></p>
     <p>{{ .Params.secondary_content | markdownify }}</p>
   </div>
 </section>

@@ -1,4 +1,14 @@
 /* Wbook CSS */
+
+/* VARIABLES */
+:root {
+  --headerBackground: #17213d;
+  --textHeaderColor: #fff9ed;
+  --sidebarBackground: rgba(255, 249, 237, 0.6);
+  --mainBackground: rgba(255, 249, 237, 0.6);
+  --footerBackground: rgba(255, 249, 237, 0.6);
+}
+
 /* GENERAL RULES */
 @charset "UTF-8";
 
@@ -78,7 +88,7 @@ a:active {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 1fr 30px; /* minmax sets the sidebar to shirnk when children does */
+  grid-template-rows: 50px 1fr 1fr 100px; /* minmax sets the sidebar to shirnk when children does */
   grid-template-areas:
     "header"
     "sidebar"
@@ -97,13 +107,47 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: space-between; /* This will separete the flex items to the extremes*/
-  background-color: #9191d9;
-  padding: 0 16px;
+  background-color: var(--headerBackground);
+  padding: 0 8px;
 }
 
 /* These are the elements of the hader */
-.header__left-element .header__right-element {
+.header p {
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  color: var(--textHeaderColor);
+}
+
+.header__brand-title {
   display: inline-block;
+}
+
+.header__brand-title > p {
+  font-size: 16px;
+}
+
+.header__book-title {
+  display: inline-block;
+}
+
+.header__book-title > p {
+  font-size: 18px;
+}
+
+.header__book-title > img {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.header__brand-logo {
+  display: inline-block;
+  text-align: right;
+}
+
+.header__brand-logo img {
+  width: 70%;
 }
 
 /* Another child element of the css grid base container */
@@ -113,7 +157,7 @@ a:active {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #91d9a3;
+  background-color: var(--sidebarBackground);
   padding: 10px 10px 5px 10px;
   max-height: 250px;
 }
@@ -189,7 +233,7 @@ a:active {
 
 .sidebar__cite-button-hide {
   position: sticky;
-  background-color: #4CAF50; /* Green */
+  background-color: lightgreen;
   border: none;
   border-radius: 50%;
   padding: 2px 6px;
@@ -223,7 +267,7 @@ javascript code that handles clicks on the cite-title elements  */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #8fd4d9;
+  background-color: var(--mainBackground);
 }
 
 /* The series title will ocupy the whole width of the main container. This element
@@ -240,7 +284,6 @@ javascript code that handles clicks on the cite-title elements  */
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
 .primary-content {
   padding: 10px;
-  margin-bottom: 10px;
 }
 
 /* The secondary-content will receive the {{ .Param.description }} that comes from the
@@ -250,15 +293,65 @@ javascript code that handles clicks on the cite-title elements  */
   margin-bottom: 10px;
 }
 
+.secondary-content img {
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.secondary-content > :first-child {
+  text-align: center;
+}
 
 .footer {
   grid-area: footer;
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
-  background-color: #d99191;
+  background-color: var(--footerBackground);
   padding: 0 10px;
 }
+
+.footer__left-container {
+  flex-basis: 20%;
+}
+
+.footer__social-author {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer__social-author > a {
+  flex-basis: 50%;
+}
+
+.footer__book-code {
+  font-size: 14px;
+  flex-basis: 60%;
+  text-align: center;
+}
+
+.footer__book-code-images {
+  height: 36px;
+}
+
+.footer__book-code > p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer__right-container {
+  flex-basis: 20%;
+}
+
+.footer__social-editor {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer__social-editor > a {
+  flex-basis: 50%;
+}
+
 
 /* Screens over 750px like tablets and desktops */
 @media only screen and (min-width: 750px) {

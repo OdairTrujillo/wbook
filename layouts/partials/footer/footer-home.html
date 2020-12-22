@@ -1,7 +1,19 @@
 <footer class="footer">
-  {{ range $.Param "footerLinks" }}
-      {{ if .link }}
-  <a href="{{ .link }}" target="_blank" rel="noreferrer">{{ .name }}</a>
-      {{ end }}
-  {{ end }}
+  <div class="footer__left-container">
+    {{ partial "footer/links-social-author.html" . }}
+  </div>
+  <div class="footer__book-code">
+    <p>{{ .Site.Params.ISBN }}</p>
+    <div>
+      <a href="{{ .Site.Params.downloadLink | safeURL }}">
+        <img class="footer__book-code-images" src="{{ .Site.Params.downloadImage | absURL }}" alt="Download Image">
+      </a>
+      <a href="{{ .Site.Params.EditorLink | safeURL }}">
+        <img class="footer__book-code-images" src="{{ .Site.Params.editorLogo | absURL }}" alt="Editor Logo">
+      </a>
+    </div>
+  </div>
+  <div class="footer__right-container">
+    {{ partial "footer/links-social-editor.html" . }}
+  </div>
 </footer>

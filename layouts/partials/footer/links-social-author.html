@@ -1,0 +1,11 @@
+{{ if .Site.Params.showSocialLinksAuthor }}
+  <div class="footer__social-author">
+    {{ range $name, $path := .Site.Params.socialOptionsAuthor }}
+    {{ if $path }}
+    <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}">
+      {{ partial (print "svg/social/" $name ".svg") (dict "width" 25 "height" 25) }}
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+{{ end }}
