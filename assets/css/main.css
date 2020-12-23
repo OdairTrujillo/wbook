@@ -17,7 +17,8 @@
   --frontFontColor: #FFF;
 
   --calendarItemsFontSize: 13px;
-  --serieFontSize: 16px;
+  --serieFontSizeM: 16px;
+  --serieFontSizeW: 18px;
   --scrollWidth: 8px;
 }
 
@@ -210,6 +211,7 @@ hr {
 .header {
   grid-area: header;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between; /* This will separete the flex items to the extremes*/
   background-color: var(--headerBackground);
@@ -233,7 +235,7 @@ hr {
 }
 
 .header__brand-title {
-  display: inline-block;
+  display: block;
 }
 
 .header__brand-title > p {
@@ -241,10 +243,10 @@ hr {
 }
 
 .header__book-title {
-  display: inline-block;
+  display: block;
 }
 
-.header__book-title > p {
+.header__book-title p {
   font-size: 18px;
 }
 
@@ -255,8 +257,8 @@ hr {
 }
 
 .header__brand-logo {
-  display: inline-block;
-  text-align: right;
+  display: block;
+  margin-left: 20px;
 }
 
 .header__brand-logo img {
@@ -293,7 +295,7 @@ hr {
 
 .sidebar__toc-serie {
   text-align: left;
-  font-size: var(--serieFontSize);
+  font-size: var(--serieFontSizeM);
   font-weight: bold;
   line-height: normal;
   cursor: pointer;
@@ -402,7 +404,6 @@ javascript code that handles clicks on the cite-title elements  */
   align-self: center;
   font-weight: bold;
   font-size: 120%;
-  text-transform: capitalize;
   padding: 10px;
 }
 
@@ -481,7 +482,7 @@ javascript code that handles clicks on the cite-title elements  */
 
   h1, h2 {
     font-size: 20px;
-    padding: 2rem 1rem;
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
   }
 
   h3, h4 {
@@ -517,7 +518,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .center-italic {
-    padding-bottom: 2rem;
+    padding: 0 5rem 2rem 5rem;
   }
 
   /* SPECIFIC RULES */
@@ -574,35 +575,26 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .header__brand-title > p {
-    font-size: 16px;
-    margin-left: 80px;
+    font-family: frontFont;
+    font-size: 28px;
   }
 
-  .header__book-title > p {
-    font-size: 42px;
+  .header__book-title p {
+    font-family: frontFont;
+    font-size: 56px;
   }
 
   .header__book-title > img {
     display: block;
     margin: 0 auto;
-    width: 72px;
-  }
-
-  .header__brand-logo {
-    display: inline-block;
-    text-align: right;
-    margin-right: 80px;
-  }
-
-  .header__brand-logo img {
-    width: 70%;
+    width: 92px;
   }
 
   /* The base container is a css grid, it is located into the baseof.html layout.
      Here is defined the tempaltes areas to build a grid with two columns and three rows */
   .grid-container {
-    grid-template-columns: 0.2fr 1fr;
-    grid-template-rows: 100px 1fr 120px;
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-rows: 140px 1fr 120px;
     grid-template-areas:
       "header header"
       "sidebar main"
@@ -613,6 +605,23 @@ javascript code that handles clicks on the cite-title elements  */
     height: 100%;
     max-height: 100%;
     min-height: 0;
+    padding: 0 0 0 50px;
+  }
+
+  .sidebar__toc-icon {
+    padding-top: 20px;
+  }
+
+  .sidebar__toc-icon > p {
+    font-size: 22px;
+  }
+
+  .sidebar__toc {
+    margin-top: 20px;
+  }
+
+  .sidebar__toc-serie {
+    font-size: var(--serieFontSizeW);
   }
 
   /* This child element of the flexbox sidebiar, is the container of cite box. */
@@ -630,17 +639,19 @@ javascript code that handles clicks on the cite-title elements  */
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 80px 1fr;
     grid-template-areas:
-      "series-title series-title"
+      "series-title secondary-content"
       "primary-content secondary-content";
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
     min-width: 0; /* Necessary in Firefox  */
+    padding-top: 20px;
   }
 
   .series-title {
     grid-area: series-title;
     font-size: 36px;
     text-align: center;
-    padding: 0;
+    padding: 0 10px ;
+    margin: 0 0px 0 40px;
   }
 
   .primary-content {
@@ -648,6 +659,8 @@ javascript code that handles clicks on the cite-title elements  */
     height: 100%;
     overflow-y: auto;
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+    margin: 0 0 0 20px;
+    padding-top: 0;
   }
 
   .secondary-content {
@@ -655,6 +668,8 @@ javascript code that handles clicks on the cite-title elements  */
     height: 100%;
     overflow-y: auto;
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+    padding-right: 20px;
+    margin: 50px 50px 0 20px;
   }
 
   /* This child element of the flexbox sidebiar, is the container of cite box. */
