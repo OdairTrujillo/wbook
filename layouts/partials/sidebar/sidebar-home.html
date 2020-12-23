@@ -11,7 +11,7 @@
   {{ end }}
 
   {{ if gt (len $filteredPages) 0 }}
-    {{ range $filteredPages.GroupByDate "2006-01-01" "asc" }}
+    {{ range $filteredPages.GroupByParam "serie" }}
       {{/* This range function will get the directory of the first grouped page to use it to get the _index.md file */}}
       {{ range .Pages | first 1 }}
         {{ $currentPath := .File.Dir }}
