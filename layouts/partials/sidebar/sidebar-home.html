@@ -1,4 +1,8 @@
 <section class="sidebar">
+  <div class="sidebar__toc-icon">
+    <img src="{{ .Site.Params.tocIcon | absURL }}" alt="Toc Icon">
+    <p class="sidebar__toc-title">{{ i18n "toc-title" | default "Content" }}</p>
+  </div>
   <div class="sidebar__toc">
   {{/* Filtering pages that will not be part of the TOC */}}
   {{ $filteredPages := .Site.RegularPages }}
