@@ -5,11 +5,11 @@
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
   <p class="series-title">{{ $serie }}</p>
-  <div class="primary-content">
+  <div class="primary-content custom-scroll">
     <h2>{{ .Title }}</h2>
     <p>{{ .Content }}</p>
   </div>
-  <div class="secondary-content">
+  <div class="secondary-content custom-scroll">
     <p>
       <img src="{{ .Site.Params.leftAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration">
       {{ .Params.secondary_title | markdownify }}

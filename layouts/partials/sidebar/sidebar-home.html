@@ -3,7 +3,7 @@
     <img src="{{ .Site.Params.tocIcon | absURL }}" alt="Toc Icon">
     <p class="sidebar__toc-title">{{ i18n "toc-title" | default "Content" }}</p>
   </div>
-  <div class="sidebar__toc">
+  <div class="sidebar__toc custom-scroll">
   {{/* Filtering pages that will not be part of the TOC */}}
   {{ $filteredPages := .Site.RegularPages }}
   {{ range $.Param "notAllowedTypesInArchive" }}

@@ -18,6 +18,7 @@
 
   --calendarItemsFontSize: 13px;
   --serieFontSize: 16px;
+  --scrollWidth: 8px;
 }
 
 /* GENERAL RULES */
@@ -225,7 +226,7 @@ hr {
 /* The child element of the flexbox sidebar, is the container of the whole TOC */
 .sidebar__toc {
   flex-grow: 1;
-  padding: 10px;
+  padding: 0 10px;
   width: 100%;
   overflow-y: auto;
 }
@@ -377,19 +378,16 @@ javascript code that handles clicks on the cite-title elements  */
 .footer {
   grid-area: footer;
   display: flex;
-  align-items: left;
+  align-items: center;
   justify-content: space-between;
   background-color: var(--footerBackground);
-  padding: 0 10px;
-}
-
-.footer__left-container {
-  flex-basis: 20%;
 }
 
 .footer__social-author {
+  flex-basis: 20%;
   display: flex;
   flex-flow: row wrap;
+  padding: 0 10px;
 }
 
 .footer__social-author > a {
@@ -404,6 +402,7 @@ javascript code that handles clicks on the cite-title elements  */
 
 .footer__book-code-images {
   height: 36px;
+  padding: 0 5px;
 }
 
 .footer__book-code > p {
@@ -411,19 +410,16 @@ javascript code that handles clicks on the cite-title elements  */
   font-size: 14px;
 }
 
-.footer__right-container {
-  flex-basis: 20%;
-}
-
 .footer__social-editor {
+  flex-basis: 20%;
   display: flex;
   flex-flow: row wrap;
+  padding: 0 10px;
 }
 
 .footer__social-editor > a {
   flex-basis: 50%;
 }
-
 
 /* Screens over 750px like tablets and desktops */
 @media only screen and (min-width: 750px) {
@@ -450,6 +446,22 @@ javascript code that handles clicks on the cite-title elements  */
   sup {
     font-size: 11px;
     font-weight: bold;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track  {
+    background-color: var(--mainBackground);
+    border-radius: var(--scrollWidth);
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: var(--scrollWidth);
+    background-color: var(--mainBackground);
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: var(--scrollWidth);
+    background-color: #FFF;
+    background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#fff9ed), to(#fff9ed), color-stop(.6,#b3b3b3));
   }
 
   .center-italic {
@@ -557,7 +569,7 @@ javascript code that handles clicks on the cite-title elements  */
      Here is defined the tempaltes areas to build a grid with two columns and three rows */
   .grid-container {
     grid-template-columns: 0.2fr 1fr;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr 120px;
     grid-template-areas:
       "header header"
       "sidebar main"
@@ -624,5 +636,51 @@ javascript code that handles clicks on the cite-title elements  */
 
   .sidebar__cite-button-hide {
     display: none;
+  }
+
+  .footer__social-author {
+    flex-basis: 20%;
+    display: flex;
+    align-items: left;
+    align-content: left;
+    flex-flow: row nowrap;
+    padding: 0 40px;
+  }
+
+  .footer__social-author > a {
+    flex-basis: 50%;
+  }
+
+  .footer__book-code {
+    font-size: 14px;
+    flex-basis: 60%;
+    text-align: center;
+  }
+
+  .footer__book-code-images {
+    height: 48px;
+    padding: 0 10px;
+  }
+
+  .footer__book-code > p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .footer__social-editor {
+    flex-basis: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    padding-top: 40px;
+  }
+
+  .footer__social-editor > a {
+    flex-basis: 50%;
+  }
+
+  .floating-desktop {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
   }
 }
