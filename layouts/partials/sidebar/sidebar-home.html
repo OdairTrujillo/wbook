@@ -11,26 +11,23 @@
   {{ end }}
 
   {{ if gt (len $filteredPages) 0 }}
-    {{ range $filteredPages.GroupByParam "serie" }}
-      {{/* Removing trainling zero */}}
-      {{ $key := .Key }}
-      {{ if eq (substr $key 0 1) "0" }}
-        {{ $key = substr $key 1 }}
-      {{ end }}
-    <p class="sidebar__toc-serie">{{ $key }}</p>
+    {{ range $filteredPages.GroupByDate "2006-01-01" "asc" }}
       {{/* This range function will get the directory of the first grouped page to use it to get the _index.md file */}}
-        {{ range .Pages | first 1 }}
-          {{ $currentPath := .File.Dir }}
+      {{ range .Pages | first 1 }}
+        {{ $currentPath := .File.Dir }}
+        {{ with $.GetPage (print $currentPath "_index.md") }}
+    <p class="sidebar__toc-serie">{{ .Params.serie }}</p>
     <div class="sidebar__toc-calendar-wrapper">
-    <p class="sidebar__toc-calendar-title">{{ with $.GetPage (print $currentPath "_index.md") }}{{ .Params.months }}{{ end }}</p>
+    <p class="sidebar__toc-calendar-title">{{ .Params.months }}</p>
         {{ end }}
+      {{ end }}
     <div class="sidebar__toc-calendar">
-      {{ range .Pages.ByParam "toc_index" }}
-      <a class="sidebar__toc-calendar-item" href="{{ .Permalink }}">{{ .Params.toc_index }}</a>
+      {{ range .Pages.ByDate }}
+      <a class="sidebar__toc-calendar-item" href="{{ .Permalink }}">{{ .Params.Date.Day }}</a>
       {{ end }}
     </div>
     </div>
-      {{ end }}
+    {{ end }}
   {{ else }}
     {{ i18n "no-contents" | default "There is nothing to display" }}
   {{ end }}
