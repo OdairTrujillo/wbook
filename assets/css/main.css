@@ -136,6 +136,58 @@ hr {
 /* The base container is a css grid, it is located into the baseof.html layout.
    Here is defined the tempaltes areas to build a grid with two columns and three rows */
 
+.index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mainBackground);
+  background-image: url("../images/index_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5px;
+}
+
+.index__flex-item {
+  text-align: center;
+}
+
+.index__book-type, .index__book-title, .index__book-author {
+  text-align: center;
+  color: var(--frontFontColor);
+}
+
+.index__book-type {
+  font-family: handWrite;
+  font-size: 18px;
+}
+
+.index__book-title  {
+  font-family: frontFont;
+  font-size: 24px;
+  margin-bottom: -5px;
+}
+
+.index__book-logo {
+  padding-bottom: 5px;
+}
+
+.index__book-logo > img {
+  height: 18px;
+}
+
+.index__book-author {
+  font-family: frontFont;
+  font-size: 16px;
+}
+
+.index__book-brand {
+  padding-top: 10px;
+}
+
+.index__book-brand > img {
+  height: 24px;
+}
+
 /* The layout is arranged with mobile-first, so the layout is vertical */
 .grid-container {
   display: grid;
@@ -470,33 +522,15 @@ javascript code that handles clicks on the cite-title elements  */
 
   /* SPECIFIC RULES */
   .index {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--mainBackground);
     background-image: url("../images/index_background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     margin: 10px;
   }
 
-  .index__flex-item {
-    text-align: center;
-
-  }
-
-  .index__book-type, .index__book-title, .index__book-author {
-    text-align: center;
-    color: var(--frontFontColor);
-  }
-
   .index__book-type {
-    font-family: handWrite;
     font-size: 36px;
   }
 
   .index__book-title  {
-    font-family: frontFont;
     font-size: 64px;
     margin-bottom: -20px;
   }
@@ -506,7 +540,6 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index__book-author {
-    font-family: frontFont;
     font-size: 24px;
   }
 
