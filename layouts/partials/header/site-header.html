@@ -2,9 +2,6 @@
   <div class="header__image-left">
     <img src="{{ .Site.Params.headerTopLeftImage | absURL }}" alt="Top-left image">
   </div>
-  <div class="header__image-right">
-    <img src="{{ .Site.Params.headerTopRightImage | absURL }}" alt="Top-right image">
-  </div>
   <div class="header__brand-title">
     <p>{{ .Site.Params.author }}</p>
   </div>
@@ -14,5 +11,8 @@
   </div>
   <div class="header__brand-logo">
     <a class="header__brand-link" href="{{ .Site.Params.brandLink | absURL }}"><img src="{{ .Site.Params.brandLogo | absURL }}" alt="Logo"></img></a>
+  </div>
+  <div class="header__image-right">
+    <img src="{{ .Site.Params.headerTopRightImage | absURL }}" alt="Top-right image">
   </div>
 </header>

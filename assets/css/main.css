@@ -509,19 +509,21 @@ javascript code that handles clicks on the cite-title elements  */
     background-image: url("../images/header_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 0 8px;
+    padding: 0;
   }
 
   .header__image-left {
+    align-self: baseline;
     display: block;
-    position: fixed;
+    position: relative;
     top: 0;
     left:0;
   }
 
   .header__image-right {
+    align-self: baseline;
     display: block;
-    position: fixed;
+    position: relative;
     top: 0;
     right:0;
   }
@@ -555,7 +557,7 @@ javascript code that handles clicks on the cite-title elements  */
      Here is defined the tempaltes areas to build a grid with two columns and three rows */
   .grid-container {
     grid-template-columns: 0.2fr 1fr;
-    grid-template-rows: 100px 1fr 70px;
+    grid-template-rows: 100px 1fr 100px;
     grid-template-areas:
       "header header"
       "sidebar main"
