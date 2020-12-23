@@ -2,14 +2,21 @@
 
 /* VARIABLES */
 :root {
+  --fontGeneralColor: #17213d;
   --headerBackground: #17213d;
   --textHeaderColor: #fff9ed;
   --sidebarBackground: rgba(255, 249, 237, 0.6);
   --mainBackground: rgba(255, 249, 237, 0.6);
   --footerBackground: rgba(255, 249, 237, 0.6);
-  --linkNormal: #26408a;
+  --linkNormal: #26598c;
   --linkHover: #4b6ece;
-  --linkVisited: #26598c;
+  --linkVisited: #26408a;
+  --calendarItemsColor: #ddccbc;
+  --calendarItemsBorderColor: #ccb299;
+  --hideButtonColor: #26598c;
+
+  --calendarItemsFontSize: 13px;
+  --serieFontSize: 16px;
 }
 
 /* GENERAL RULES */
@@ -23,6 +30,7 @@
 body {
   padding: 0;
   font-family: 'Open Sans', Helvetica, sans-serif;
+  color: var(--fontGeneralColor);
 }
 
 h1, h2 {
@@ -73,6 +81,16 @@ a:hover {
 /* selected link */
 a:active {
   color: var(--linkHover);
+}
+
+hr {
+  min-height: 2px;
+  height: 2px;
+  width: 95%;
+  border-width: 0;
+  margin: 10px 0;
+  color: var(--linkNormal);
+  background-color: var(--linkNormal);
 }
 
 .center-italic {
@@ -182,23 +200,28 @@ a:active {
 }
 
 .sidebar__toc-icon {
+  text-align: center;
+}
 
+.sidebar__toc-icon > p {
+  text-align: center;
 }
 
 .sidebar__toc-serie {
   text-align: left;
+  font-size: var(--serieFontSize);
   font-weight: bold;
   line-height: normal;
   cursor: pointer;
-  color: darkcyan;
+  color: var(--linkNormal);
 }
 
 .sidebar__toc-serie:hover {
-  color: DarkTurquoise;
+  color: var(--linkHover);
 }
 
 .serie--active {
-  background-color: rgba(255,255,255, 0.2); /* To highlight the active serie */
+  color: var(--linkVisited); /* To highlight the active serie */
 }
 
 /* The wrapper of the calendar is used for hide the whole calendar */
@@ -214,8 +237,9 @@ a:active {
   align-items: flex-start;
   justify-content: left;
   flex-flow: row wrap;
-  border: 1px solid;
-  padding: 10px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  padding: 10px 0;
 }
 
 .sidebar__toc-calendar-title {
@@ -225,33 +249,36 @@ a:active {
 
 .sidebar__toc-calendar-item {
   text-align: center;
+  font-size: var(--calendarItemsFontSize);
+  font-weight: bold;
+  background-color: var(--calendarItemsColor);
   width: 25px;
   height: 25px;
   margin: 2px;
   padding-top: 4px;
-  border: 1px solid;
+  border: 1px var(--calendarItemsBorderColor) solid;
   border-radius: 50%
 
 }
-/* This child element of the flexbox sidebiar, is the container of cite box. */
+
+/* This child element of the flexbox sidebar, is the container of cite box. */
 /* It is hidden on mobiles, but it appears when a cite-title is clicked */
 .sidebar__cite {
   max-height: 0px;
   font-style: italic;
   text-align: center;
   width: 100%;
-  margin-top: 10px;
   transition: 0.3s ease;
   overflow-y: auto;
 }
 
 .sidebar__cite-button-hide {
   position: sticky;
-  background-color: lightgreen;
+  background-color: var(--hideButtonColor);
   border: none;
   border-radius: 50%;
   padding: 2px 6px;
-  color: white;
+  color: var(--mainBackground);
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
@@ -266,11 +293,11 @@ javascript code that handles clicks on the cite-title elements  */
 
 .cite-title {
   cursor: pointer;
-  color: darkcyan;
+  color: var(--linkNormal);
 }
 
 .cite-title:hover {
-  color: DarkTurquoise;
+  color: var(--linkHover);
 }
 
 /* The main container is a css grid, it is located into the single.html layout.
@@ -466,6 +493,12 @@ javascript code that handles clicks on the cite-title elements  */
     min-height: 0;
   }
 
+  /* This child element of the flexbox sidebiar, is the container of cite box. */
+  /* It is hidden on mobiles, but it appears when a cite-title is clicked */
+  .sidebar__cite {
+    min-height: 160px;
+  }
+
   /* The main container is a css grid, it is located into the single.html layout.
      Here is defined the tempaltes areas to build a grid with two columns and two rows.
      This is the reading area of the Wbook. */
@@ -473,7 +506,7 @@ javascript code that handles clicks on the cite-title elements  */
     grid-area: main;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 80px 1fr;
     grid-template-areas:
       "series-title series-title"
       "primary-content secondary-content";
@@ -483,8 +516,9 @@ javascript code that handles clicks on the cite-title elements  */
 
   .series-title {
     grid-area: series-title;
-    font-size: 150%;
-    padding: 20px;
+    font-size: 36px;
+    text-align: center;
+    padding: 0;
   }
 
   .primary-content {
@@ -507,7 +541,6 @@ javascript code that handles clicks on the cite-title elements  */
     max-height: none;
     padding: 10px;
     height: 210px;
-    border: 1px solid;
     overflow-y: auto;
     margin-bottom: 5px;
   }

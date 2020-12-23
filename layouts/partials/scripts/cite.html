@@ -13,15 +13,13 @@ for (let i = 0; i < citeTitleListEl.length; i++) {
     const citeTextEl = this.previousElementSibling;
     // Populating the cite-box element with the html content of the sibling
     // but with a delay that puts the text after the ease transition
-    setTimeout(() => {  citeBoxEl.innerHTML = citeTextEl.innerHTML; }, 200);
+    setTimeout(() => {  citeBoxEl.innerHTML = "<strong>" + this.innerHTML + "</strong>" + "<br><br>" + citeTextEl.innerHTML; }, 200);
     if (buttonHideEl.style.display != "none") {
     citeBoxEl.style.maxHeight = citeBoxElHeight;
     citeBoxEl.style.minHeight = "100px";
     citeBoxEl.style.padding = "10px";
-    citeBoxEl.style.height = "210px";
-    citeBoxEl.style.border = "1px solid";
+    //citeBoxEl.style.height = "210px";
     citeBoxEl.style.overflowY = "auto";
-    citeBoxEl.style.marginTop = "10px";
   }
   });
 }
