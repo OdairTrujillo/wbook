@@ -14,6 +14,7 @@
   --calendarItemsColor: #ddccbc;
   --calendarItemsBorderColor: #ccb299;
   --hideButtonColor: #26598c;
+  --frontFontColor: #FFF;
 
   --calendarItemsFontSize: 13px;
   --serieFontSize: 16px;
@@ -22,6 +23,36 @@
 /* GENERAL RULES */
 @charset "UTF-8";
 
+@font-face {
+  font-family: handWrite;
+  src: url("../fonts/SnellRoundhand.ttf");
+}
+
+@font-face {
+  font-family: frontFont;
+  src: url("../fonts/Fontin-Bold.otf");
+}
+
+@font-face {
+  font-family: contentTitle;
+  src: url("../fonts/Asap-Bold.ttf");
+}
+
+@font-face {
+  font-family: contentTitleItalic;
+  src: url("../fonts/Asap-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: contentItalic;
+  src: url("../fonts/Asap-Italic.ttf");
+}
+
+@font-face {
+  font-family: contentRegular;
+  src: url("../fonts/Asap-Regular.ttf");
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -29,7 +60,7 @@
 
 body {
   padding: 0;
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-family: 'contentRegular', Helvetica, sans-serif;
   color: var(--fontGeneralColor);
 }
 
@@ -314,8 +345,8 @@ javascript code that handles clicks on the cite-title elements  */
 /* The series title will ocupy the whole width of the main container. This element
    just shows the header text of the book. */
 .series-title {
+  font-family: contentTitle;
   align-self: center;
-  font-family: serif;
   font-weight: bold;
   font-size: 120%;
   text-transform: capitalize;
@@ -426,6 +457,50 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   /* SPECIFIC RULES */
+  .index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mainBackground);
+    background-image: url("../images/index_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+  }
+
+  .index__flex-item {
+    text-align: center;
+
+  }
+
+  .index__book-type, .index__book-title, .index__book-author {
+    text-align: center;
+    color: var(--frontFontColor);
+  }
+
+  .index__book-type {
+    font-family: handWrite;
+    font-size: 36px;
+  }
+
+  .index__book-title  {
+    font-family: frontFont;
+    font-size: 64px;
+    margin-bottom: -20px;
+  }
+
+  .index__book-logo {
+    padding-bottom: 20px;
+  }
+
+  .index__book-author {
+    font-family: frontFont;
+    font-size: 24px;
+  }
+
+  .index__book-brand {
+    padding-top: 30px;
+  }
 
   /* The header is a flex container, with the elements separated to the extremes, it is
      located into the baseof.html file. The parameter grid-area assigns a name to the

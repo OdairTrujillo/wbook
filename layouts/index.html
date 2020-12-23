@@ -1,7 +1,17 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<main class="main">
-  <p>This will be the index page</p>
+<main class="index">
+  <div class="index__flex-item">
+    <p class="index__book-type">Libro Devocional</p>
+    <p class="index__book-title">#EnCasaConDios</p>
+    <div class="index__book-logo">
+      <img src="{{ .Site.Params.bookLogo }}" alt="Book Logo">
+    </div>
+    <p class="index__book-author">Jimmy Chamorro</p>
+    <div class="index__book-brand">
+      <img src="{{ .Site.Params.brandLogo }}" alt="Brand Logo">
+    </div>
+  </div>
 </main>
 {{ end }}
