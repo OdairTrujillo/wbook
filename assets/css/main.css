@@ -395,6 +395,7 @@ javascript code that handles clicks on the cite-title elements  */
   flex-direction: column;
   align-items: flex-start;
   background-color: var(--mainBackground);
+  padding: 0 4px;
 }
 
 /* The series title will ocupy the whole width of the main container. This element
@@ -434,17 +435,7 @@ javascript code that handles clicks on the cite-title elements  */
   align-items: center;
   justify-content: space-between;
   background-color: var(--footerBackground);
-}
-
-.footer__social-author {
-  flex-basis: 20%;
-  display: flex;
-  flex-flow: row wrap;
-  padding: 0 10px;
-}
-
-.footer__social-author > a {
-  flex-basis: 50%;
+  padding: 0 5px;
 }
 
 .footer__book-code {
@@ -453,18 +444,18 @@ javascript code that handles clicks on the cite-title elements  */
   text-align: center;
 }
 
-.footer__book-code-images {
-  height: 36px;
-  padding: 0 5px;
-}
-
 .footer__book-code > p {
   text-align: center;
   font-size: 14px;
 }
 
+.footer__book-link-image > img {
+  height: 36px;
+  padding-bottom: 5px;
+}
+
 .footer__social-editor {
-  flex-basis: 20%;
+  flex-basis: 30%;
   display: flex;
   flex-flow: row wrap;
   padding: 0 10px;
@@ -472,6 +463,15 @@ javascript code that handles clicks on the cite-title elements  */
 
 .footer__social-editor > a {
   flex-basis: 50%;
+}
+
+.footer__link-images {
+  flex-basis: 30%;
+  text-align: center;
+}
+
+.footer__link-image > img {
+  height: 36px;
 }
 
 /* Screens over 750px like tablets and desktops */
@@ -548,6 +548,17 @@ javascript code that handles clicks on the cite-title elements  */
     padding-top: 30px;
   }
 
+  /* The base container is a css grid, it is located into the baseof.html layout.
+     Here is defined the tempaltes areas to build a grid with two columns and three rows */
+  .grid-container {
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-rows: 120px 1fr 100px;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
   /* The header is a flex container, with the elements separated to the extremes, it is
      located into the baseof.html file. The parameter grid-area assigns a name to the
      header class inside de css grid (.grid-container)*/
@@ -599,19 +610,8 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .header__brand-logo img {
-    width: 100%;
+    width: 120%;
     min-width: 92px !important;
-  }
-
-  /* The base container is a css grid, it is located into the baseof.html layout.
-     Here is defined the tempaltes areas to build a grid with two columns and three rows */
-  .grid-container {
-    grid-template-columns: 0.25fr 1fr;
-    grid-template-rows: 140px 1fr 120px;
-    grid-template-areas:
-      "header header"
-      "sidebar main"
-      "footer footer";
   }
 
   .sidebar {
@@ -656,7 +656,7 @@ javascript code that handles clicks on the cite-title elements  */
       "primary-content secondary-content";
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
     min-width: 0; /* Necessary in Firefox  */
-    padding-top: 20px;
+    padding: 20px 0 0 0;
   }
 
   .series-title {
@@ -706,11 +706,12 @@ javascript code that handles clicks on the cite-title elements  */
 
   .footer__social-author {
     flex-basis: 20%;
-    display: flex;
-    align-items: left;
-    align-content: left;
-    flex-flow: row nowrap;
-    padding: 0 40px;
+    text-align: center;
+    padding: 0 50px;
+  }
+
+  .footer {
+    padding: 0 10px;
   }
 
   .footer__social-author > a {
@@ -723,14 +724,14 @@ javascript code that handles clicks on the cite-title elements  */
     text-align: center;
   }
 
-  .footer__book-code-images {
-    height: 48px;
-    padding: 0 10px;
-  }
-
   .footer__book-code > p {
     text-align: center;
     font-size: 14px;
+  }
+
+  .footer__book-link-image > img {
+    height: 42px;
+    padding-bottom: 5px;
   }
 
   .footer__social-editor {
@@ -744,9 +745,18 @@ javascript code that handles clicks on the cite-title elements  */
     flex-basis: 50%;
   }
 
-  .floating-desktop {
-    position: absolute;
-    bottom: 60px;
-    right: 0;
+  .footer__link-images {
+    flex-basis: 30%;
+    text-align: center;
   }
+
+  .footer__link-image > img {
+    height: 42px;
+    padding-bottom: 5px;
+  }
+
+  .footer__link-image {
+    margin: 0 auto;
+  }
+
 }

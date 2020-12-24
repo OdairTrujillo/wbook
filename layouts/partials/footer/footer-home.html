@@ -2,14 +2,16 @@
   {{ partial "footer/links-social-author.html" . }}
   <div class="footer__book-code">
     <p>{{ .Site.Params.ISBN }}</p>
-    <div class="floating-desktop">
-      <a href="{{ .Site.Params.downloadLink | safeURL }}">
-        <img class="footer__book-code-images" src="{{ .Site.Params.downloadImage | absURL }}" alt="Download Image">
-      </a>
-      <a href="{{ .Site.Params.EditorLink | safeURL }}">
-        <img class="footer__book-code-images" src="{{ .Site.Params.editorLogo | absURL }}" alt="Editor Logo">
-      </a>
-    </div>
+    <a class="footer__book-link-image" href="{{ .Site.Params.downloadLink | safeURL }}" target="_blank">
+      <img src="{{ .Site.Params.downloadImage | absURL }}" alt="Download Image">
+    </a>
   </div>
-  {{ partial "footer/links-social-editor.html" . }}
+  <div class="footer__link-images">
+    <a class="footer__link-image" href="{{ .Site.Params.EditorLink | safeURL }}" target="_blank">
+      <img src="{{ .Site.Params.editorLogo | absURL }}" alt="Editor Logo">
+    </a>
+    <a class="footer__link-image" href="{{ .Site.Params.brandLink | safeURL }}" target="_blank">
+      {{ partial (print "svg/social/" "youtube.svg") (dict "width" 48 "height" 48) }}
+    </a>
+  </div>
 </footer>
