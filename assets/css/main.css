@@ -759,4 +759,10 @@ javascript code that handles clicks on the cite-title elements  */
     margin: 0 auto;
   }
 
+  .background-image {
+     background-image: url("../images/prelimsBackground.jpg");
+     background-size: cover;
+     background-repeat: no-repeat
+  }
+
 }
