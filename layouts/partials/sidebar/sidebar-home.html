@@ -1,3 +1,4 @@
+
 <section class="sidebar">
   <div class="sidebar__toc-icon">
     <img src="{{ .Site.Params.tocIcon | absURL }}" alt="Toc Icon">
@@ -18,12 +19,12 @@
         {{ $currentPath := .File.Dir }}
         {{ with $.GetPage (print $currentPath "_index.md") }}
     <p class="sidebar__toc-serie">{{ .Params.serie }}</p>
-    <div class="sidebar__toc-calendar-wrapper">
         {{ end }}
+    <div class="sidebar__toc-calendar-wrapper">
       {{ end }}
     <div class="sidebar__toc-calendar">
       {{ range .Pages.ByDate }}
-      {{ if eq .Params.Date.Day 1 }} {{/* Excluding January the first */}}
+      {{ if eq .Params.Date.Day 1 }}
         <p class="sidebar__toc-calendar-title" style="flex-basis: 100%">{{ index $mymonths (printf "%d" .Params.Date.Month) }}</p>
       {{ end }}
       <a class="sidebar__toc-calendar-item" href="{{ .Permalink }}">{{ .Params.Date.Day }}</a>
@@ -34,7 +35,6 @@
   {{ else }}
     {{ i18n "no-contents" | default "There is nothing to display" }}
   {{ end }}
-
   </div>
   {{ partial "sidebar/sidebar-cite.html" . }}
 </section>
