@@ -128,7 +128,7 @@ hr {
 
 .center-italic {
   text-align: center;
-  font-style: italic;
+  font-family: italic;
   padding-bottom: 1rem;
 }
 
@@ -351,7 +351,7 @@ hr {
 /* It is hidden on mobiles, but it appears when a cite-title is clicked */
 .sidebar__cite {
   max-height: 0px;
-  font-style: contentItalic;
+  font-family: contentItalic;
   text-align: center;
   width: 100%;
   transition: 0.3s ease;
