@@ -1,0 +1,3 @@
+{{ $mymonths := index $.Site.Data.months.es }}
+<span>{{ with .Page.Params }}{{ index $mymonths (printf "%d" .Date.Month) }}&nbsp;{{ .Date.Day }}{{ end }}</span>
+{{- /* This comment removes trailing newlines. */ -}}
