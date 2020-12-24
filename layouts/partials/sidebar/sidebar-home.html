@@ -5,6 +5,18 @@
     <p class="sidebar__toc-title">Contenido</p>
   </div>
   <div class="sidebar__toc custom-scroll">
+  {{ $prelimPages := (where .Site.RegularPages "Section" "==" "prelims") }}
+  {{ range $prelimPages.ByParam "toc_order" | first 1 }}
+    {{ $currentPath := .File.Dir }}
+    {{ with $.GetPage (print $currentPath "_index.md") }}
+    <p class="sidebar__toc-serie">{{ .Params.section }}</p>{{ end }}
+  {{ end }}
+    <div class="sidebar__toc-calendar-wrapper prelims">
+  {{ range $prelimPages }}
+      <a href="{{ .Permalink }}">{{ .Params.title }}</a>
+  {{ end }}
+    </div>
+
   {{ $mymonths := index $.Site.Data.months.es }}
   {{/* Filtering pages that will not be part of the TOC */}}
   {{ $filteredPages := .Site.RegularPages }}
