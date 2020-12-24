@@ -9,7 +9,8 @@
   {{ range $prelimPages.ByParam "toc_order" | first 1 }}
     {{ $currentPath := .File.Dir }}
     {{ with $.GetPage (print $currentPath "_index.md") }}
-    <p class="sidebar__toc-serie">{{ .Params.section }}</p>{{ end }}
+    <p class="sidebar__toc-serie">{{ .Params.section }}</p>
+    {{ end }}
   {{ end }}
     <div class="sidebar__toc-calendar-wrapper prelims">
   {{ range $prelimPages }}
@@ -20,6 +21,7 @@
   {{ $mymonths := index $.Site.Data.months.es }}
   {{/* Filtering pages that will not be part of the TOC */}}
   {{ $filteredPages := .Site.RegularPages }}
+
   {{ range $.Param "notAllowedTypesInArchive" }}
     {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
   {{ end }}

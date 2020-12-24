@@ -4,7 +4,15 @@
   {{ if eq (substr $serie 0 1) "0" }}
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
-  <p class="series-title">{{ $serie }}</p>
+  {{ $currentPath := .File.Dir }}
+  <div class="series-title">
+    <p class="series-title">{{ $serie }}</p>
+    {{ with $.GetPage (print $currentPath "_index.md") }}
+    <span class="youtubeplay">
+      <a href="{{ .Params.video | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</a>
+    </span>
+    {{ end  }}
+  </div>
   <div class="primary-content custom-scroll">
     <h2>{{ .Title }}</h2>
     <p>{{ .Content }}</p>

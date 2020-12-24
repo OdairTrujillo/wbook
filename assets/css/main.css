@@ -411,6 +411,7 @@ javascript code that handles clicks on the cite-title elements  */
 /* The series title will ocupy the whole width of the main container. This element
    just shows the header text of the book. */
 .series-title {
+  display: inline-block;
   font-family: contentTitle;
   align-self: center;
   font-weight: bold;
