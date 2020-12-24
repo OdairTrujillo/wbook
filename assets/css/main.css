@@ -351,7 +351,7 @@ hr {
 /* It is hidden on mobiles, but it appears when a cite-title is clicked */
 .sidebar__cite {
   max-height: 0px;
-  font-style: italic;
+  font-style: contentItalic;
   text-align: center;
   width: 100%;
   transition: 0.3s ease;
@@ -640,7 +640,15 @@ javascript code that handles clicks on the cite-title elements  */
   /* This child element of the flexbox sidebiar, is the container of cite box. */
   /* It is hidden on mobiles, but it appears when a cite-title is clicked */
   .sidebar__cite {
-    min-height: 160px;
+    max-height: none;
+    padding: 10px;
+    height: 210px;
+    overflow-y: auto;
+    margin-bottom: 5px;
+  }
+
+  .sidebar__cite-button-hide {
+    display: none;
   }
 
   /* The main container is a css grid, it is located into the single.html layout.
@@ -688,20 +696,6 @@ javascript code that handles clicks on the cite-title elements  */
   .secondary-content img {
     padding: 0 5px;
     margin: 0 auto;
-  }
-
-  /* This child element of the flexbox sidebiar, is the container of cite box. */
-  /* It is hidden on mobiles, but it appears when a cite-title is clicked */
-  .sidebar__cite {
-    max-height: none;
-    padding: 10px;
-    height: 210px;
-    overflow-y: auto;
-    margin-bottom: 5px;
-  }
-
-  .sidebar__cite-button-hide {
-    display: none;
   }
 
   .footer__social-author {
@@ -764,5 +758,4 @@ javascript code that handles clicks on the cite-title elements  */
      background-size: cover;
      background-repeat: no-repeat
   }
-
 }
