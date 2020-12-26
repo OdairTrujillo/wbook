@@ -16,6 +16,7 @@
   --hideButtonColor: #26598c;
   --frontFontColor: #FFF;
   --featuredBackgroundColor: #ff8080;
+  --featuredPostColor: #fff7e6;
 
   --calendarItemsFontSize: 13px;
   --serieFontSizeM: 16px;
@@ -818,6 +819,21 @@ javascript code that handles clicks on the cite-title elements  */
      background-size: contain;
      background-position: center;
      background-repeat: no-repeat
+  }
+
+  .author-background {
+     background-image: url("../images/author_image.jpg");
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat
+  }
+
+  .featured-item {
+    background-color: var(--featuredBackgroundColor);
+  }
+
+  .featured-post {
+    background-color: var(--featuredPostColor);
   }
 
 }

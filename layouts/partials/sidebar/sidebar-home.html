@@ -6,14 +6,14 @@
   </div>
   <div class="sidebar__toc custom-scroll">
   {{ $prelimPages := (where .Site.RegularPages "Section" "==" "prelims") }}
-  {{ range $prelimPages.ByParam "toc_order" | first 1 }}
+  {{ range $prelimPages | first 1 }}
     {{ $currentPath := .File.Dir }}
     {{ with $.GetPage (print $currentPath "_index.md") }}
     <p class="sidebar__toc-serie">{{ .Params.section }}</p>
     {{ end }}
   {{ end }}
     <div class="sidebar__toc-calendar-wrapper prelims">
-  {{ range $prelimPages }}
+  {{ range $prelimPages.ByParam "toc_order" }}
       <a href="{{ .Permalink }}">{{ .Params.title }}</a>
   {{ end }}
     </div>
@@ -43,7 +43,11 @@
         <p class="sidebar__toc-calendar-title" style="flex-basis: 100%">{{ index $mymonths (printf "%d" .Params.Date.Month) }}</p>
       {{ end }}
       {{ if .Params.featured }}{{ $featuredClass = "featured-item" }}{{ end }}
+      {{ if .Params.emoji }}
+      <a class="sidebar__toc-calendar-item {{ $featuredClass }}" href="{{ .Permalink }}">{{ .Params.emoji }}</a>
+      {{ else }}
       <a class="sidebar__toc-calendar-item {{ $featuredClass }}" href="{{ .Permalink }}">{{ .Params.Date.Day }}</a>
+      {{ end }}
       {{ end }}
     </div>
     </div>

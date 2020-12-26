@@ -1,11 +1,15 @@
 {{ define "main" }}
+{{ $alternateBackground := "background-image" }}
 <section class="main">
   <div class="primary-content custom-scroll">
     <h1>{{ .Title }}</h1>
     <p>{{ .Content }}</p>
   </div>
   <div class="secondary-title"></div>
-  <div class="secondary-content custom-scroll background-image">
+  {{ if eq .Title "Perfil del Autor" }}
+  {{ $alternateBackground = "author-background" }}
+  {{ end }}
+  <div class="secondary-content custom-scroll {{ $alternateBackground }}">
   </div>
 </section>
 {{ end }}

@@ -1,7 +1,10 @@
 {{ define "main" }}
 {{ $currentPath := .File.Dir }}
-<section class="main">
-  {{ $serie := .Params.serie }}
+{{ $serie := .Params.serie }}
+{{ $featuredClass := "" }}
+{{ if .Params.featured }}{{ $featuredClass = "featured-post" }}{{ end }}
+
+<section class="main {{ $featuredClass }}">
   {{ if eq (substr $serie 0 1) "0" }}
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
