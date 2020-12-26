@@ -143,6 +143,7 @@ hr {
   justify-content: center;
   background-color: var(--mainBackground);
   background-image: url("../images/index_background.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 5px;
@@ -403,7 +404,7 @@ javascript code that handles clicks on the cite-title elements  */
   grid-area: main;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-content: center;
   background-color: var(--mainBackground);
   padding: 0 4px;
 }
@@ -414,18 +415,18 @@ javascript code that handles clicks on the cite-title elements  */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: contentTitle;
   font-weight: bold;
-  font-size: 120%;
   padding: 10px;
 }
 
 .series-title {
-
+  font-family: contentTitle;
+  font-size: 24px;
 }
 
 .series-playbutton {
-  padding-top: 10px;
+  padding-left: 10px;
+  padding-top: 0.4rem;
 }
 
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
@@ -544,6 +545,7 @@ javascript code that handles clicks on the cite-title elements  */
   /* SPECIFIC RULES */
   .index {
     background-image: url("../images/index_background.jpg");
+    background-position: center;
     margin: 10px;
   }
 
@@ -690,19 +692,21 @@ javascript code that handles clicks on the cite-title elements  */
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 80px 1fr;
     grid-template-areas:
-      "series-title secondary-content"
+      "series secondary-content"
       "primary-content secondary-content";
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
     min-width: 0; /* Necessary in Firefox  */
     padding: 20px 0 0 0;
   }
 
-  .series-title {
-    grid-area: series-title;
-    font-size: 36px;
-    text-align: center;
+  .series {
+    grid-area: series;
     padding: 0 20px 0 10px;
     margin: 0 0px 0 20px;
+  }
+
+  .series-title {
+    font-size: 36px;
   }
 
   .primary-content {
@@ -785,7 +789,8 @@ javascript code that handles clicks on the cite-title elements  */
 
   .background-image {
      background-image: url("../images/prelimsBackground.jpg");
-     background-size: cover;
+     background-size: contain;
+     background-position: center;
      background-repeat: no-repeat
   }
 }
