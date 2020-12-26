@@ -154,6 +154,7 @@ audio {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 5px;
+  min-height: 500px;
 }
 
 .index__flex-item {
@@ -175,7 +176,7 @@ audio {
   font-family: frontFont;
   padding-top: 0;
   font-size: 24px;
-  margin-bottom: -20px;
+  margin-bottom: -5px;
 }
 
 .index__book-logo {
@@ -183,7 +184,7 @@ audio {
 }
 
 .index__book-logo > img {
-  height: 30px;
+  height: 20px;
 }
 
 .index__book-author {
@@ -193,11 +194,11 @@ audio {
 }
 
 .index__book-brand {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .index__book-brand > img {
-  height: 42px;
+  height: 28px;
 }
 
 /* The layout is arranged with mobile-first, so the layout is vertical */
@@ -422,6 +423,10 @@ javascript code that handles clicks on the cite-title elements  */
   padding: 0 4px;
 }
 
+.featured-post {
+    background-color: var(--featuredPostColor);
+}
+
 /* The series title will ocupy the whole width of the main container. This element
    just shows the header text of the book. */
 .series {
@@ -437,17 +442,16 @@ javascript code that handles clicks on the cite-title elements  */
   font-size: 24px;
 }
 
-.series-playbutton {
-  cursor: pointer;
-  padding-left: 10px;
-  padding-top: 0.4rem;
-}
-
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
 .primary-content {
   padding: 10px;
 }
 
+.video-playbutton {
+  cursor: pointer;
+  text-align: center;
+  margin-top: -20px;
+}
 
 .video-responsive {
   height: 0;
@@ -479,6 +483,11 @@ javascript code that handles clicks on the cite-title elements  */
 
 .secondary-content > :first-child {
   text-align: center;
+}
+
+.secondary-content li {
+  line-height: 1.25;
+  font-size: 16px;
 }
 
 .footer {
@@ -593,12 +602,20 @@ javascript code that handles clicks on the cite-title elements  */
     padding-bottom: 20px;
   }
 
+  .index__book-logo > img {
+    height: 30px;
+  }
+
   .index__book-author {
     font-size: 24px;
   }
 
   .index__book-brand {
     padding-top: 30px;
+  }
+
+  .index__book-brand > img {
+    height: 42px;
   }
 
   /* The base container is a css grid, it is located into the baseof.html layout.
@@ -655,7 +672,7 @@ javascript code that handles clicks on the cite-title elements  */
   .header__book-title > img {
     display: block;
     margin: 0 auto;
-    width: 92px;
+    width: 86px;
   }
 
   .header__brand-logo {
@@ -663,7 +680,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .header__brand-logo img {
-    width: 120%;
+    width: 100%;
     min-width: 92px !important;
   }
 
@@ -730,19 +747,15 @@ javascript code that handles clicks on the cite-title elements  */
     padding: 20px 0 0 0;
   }
 
-  .series {
-    grid-area: series;
-    padding: 0 20px 0 10px;
-    margin: 0 0px 0 20px;
+  .featured-post {
+      background-color: var(--featuredPostColor);
   }
 
   .series-title {
     font-size: 36px;
+    margin: 0 auto;
   }
 
-  .series-playbutton {
-    padding-top: 0.6rem;
-  }
 
   .primary-content {
     grid-area: primary-content;
@@ -751,6 +764,10 @@ javascript code that handles clicks on the cite-title elements  */
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
     margin: 0 0 0 20px;
     padding: 0 10px 0 10px;
+  }
+
+  .video-playbutton {
+    margin-top: -40px;
   }
 
   .secondary-content {
@@ -765,6 +782,11 @@ javascript code that handles clicks on the cite-title elements  */
   .secondary-content img {
     padding: 0 5px;
     margin: 0 auto;
+  }
+
+  .secondary-content li {
+    line-height: 1.5;
+    font-size: 18px;
   }
 
   .secondary-content__background-image {
@@ -886,10 +908,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   .featured-item {
     background-color: var(--featuredBackgroundColor);
-  }
-
-  .featured-post {
-    background-color: var(--featuredPostColor);
   }
 
 }

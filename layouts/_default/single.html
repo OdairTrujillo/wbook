@@ -8,17 +8,15 @@
   {{ if eq (substr $serie 0 1) "0" }}
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
-  <div class="series">
-    <p class="series-title">{{ $serie }}</p>
-      <i class="series-playbutton" href="{{ .Params.video | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</i>
-  </div>
+  <p class="series-title">{{ $serie }}</p>
   <div class="primary-content custom-scroll">
-    {{ with $.GetPage (print $currentPath "_index.md") }}
+    <h2>{{ .Title }}</h2>
+    {{ if .Params.video }}
+    <p class="video-playbutton" href="{{ . | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</p>
     <div id="video-box" class="video-responsive">
       <iframe src="{{ .Params.video | safeURL }}" frameborder="0" encrypted-media allowfullscreen></iframe>
     </div>
-    {{ end  }}
-    <h2>{{ .Title }}</h2>
+    {{ end }}
     <p>{{ .Content }}</p>
   </div>
   <div class="secondary-content custom-scroll">
