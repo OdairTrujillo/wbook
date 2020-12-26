@@ -586,6 +586,7 @@ javascript code that handles clicks on the cite-title elements  */
   .index {
     background-image: url("../images/index_background.jpg");
     background-position: center;
+    background-size: 100% 100%;
     margin: 10px;
   }
 
