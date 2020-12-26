@@ -3,6 +3,7 @@
 
 // Getting all elements
 const sidebarListEl = document.getElementsByClassName("sidebar__toc-serie");
+const videoButtonEl = document.getElementsByClassName("series-playbutton");
 
 // Iterating over the array of elements to add the event listener.
 for (let i = 0; i < sidebarListEl.length; i++) {
@@ -20,6 +21,17 @@ for (let i = 0; i < sidebarListEl.length; i++) {
       setCookie("active-item", this.innerText, 365)
     }
   });
+
+  for (let i = 0; i < videoButtonEl.length; i++) {
+    videoButtonEl[i].addEventListener("click", function() {
+      const videoBoxEl = document.getElementById("video-box");
+      if (videoBoxEl.style.paddingBottom) {
+        videoBoxEl.style.paddingBottom = null;
+      } else {
+        videoBoxEl.style.paddingBottom = "56.25%";
+      }
+    });
+  }
 }
 
 function setCookie(cname, cvalue, exdays) {

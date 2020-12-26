@@ -38,10 +38,12 @@
       {{ end }}
     <div class="sidebar__toc-calendar">
       {{ range .Pages.ByDate }}
+      {{ $featuredClass := "" }}
       {{ if eq .Params.Date.Day 1 }}
         <p class="sidebar__toc-calendar-title" style="flex-basis: 100%">{{ index $mymonths (printf "%d" .Params.Date.Month) }}</p>
       {{ end }}
-      <a class="sidebar__toc-calendar-item" href="{{ .Permalink }}">{{ .Params.Date.Day }}</a>
+      {{ if .Params.featured }}{{ $featuredClass = "featured-item" }}{{ end }}
+      <a class="sidebar__toc-calendar-item {{ $featuredClass }}" href="{{ .Permalink }}">{{ .Params.Date.Day }}</a>
       {{ end }}
     </div>
     </div>

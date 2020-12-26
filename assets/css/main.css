@@ -15,6 +15,7 @@
   --calendarItemsBorderColor: #ccb299;
   --hideButtonColor: #26598c;
   --frontFontColor: #FFF;
+  --featuredBackgroundColor: #ff8080;
 
   --calendarItemsFontSize: 13px;
   --serieFontSizeM: 16px;
@@ -355,7 +356,10 @@ hr {
   padding-top: 4px;
   border: 1px var(--calendarItemsBorderColor) solid;
   border-radius: 50%
+}
 
+.featured-item {
+  background-color: var(--featuredBackgroundColor);
 }
 
 /* This child element of the flexbox sidebar, is the container of cite box. */
@@ -425,6 +429,7 @@ javascript code that handles clicks on the cite-title elements  */
 }
 
 .series-playbutton {
+  cursor: pointer;
   padding-left: 10px;
   padding-top: 0.4rem;
 }
@@ -432,6 +437,23 @@ javascript code that handles clicks on the cite-title elements  */
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
 .primary-content {
   padding: 10px;
+}
+
+
+.video-responsive {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  position: relative;
+  transition: padding 0.3s ease-out;
+}
+
+.video-responsive iframe, .video-responsive object, .video-responsive embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 /* The secondary-content will receive the {{ .Param.description }} that comes from the
@@ -709,6 +731,10 @@ javascript code that handles clicks on the cite-title elements  */
     font-size: 36px;
   }
 
+  .series-playbutton {
+    padding-top: 0.6rem;
+  }
+
   .primary-content {
     grid-area: primary-content;
     height: 100%;
@@ -793,4 +819,5 @@ javascript code that handles clicks on the cite-title elements  */
      background-position: center;
      background-repeat: no-repeat
   }
+
 }
