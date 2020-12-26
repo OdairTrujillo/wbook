@@ -149,7 +149,7 @@ audio {
   align-items: center;
   justify-content: center;
   background-color: var(--mainBackground);
-  background-image: url("../images/index_background.jpg");
+  background-image: url("../images/index_backgroundV.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -168,12 +168,14 @@ audio {
 .index__book-type {
   font-family: handWrite;
   font-size: 18px;
+  padding-bottom: 0;
 }
 
 .index__book-title  {
   font-family: frontFont;
+  padding-top: 0;
   font-size: 24px;
-  margin-bottom: -5px;
+  margin-bottom: -20px;
 }
 
 .index__book-logo {
@@ -181,11 +183,12 @@ audio {
 }
 
 .index__book-logo > img {
-  height: 18px;
+  height: 30px;
 }
 
 .index__book-author {
   font-family: frontFont;
+  padding-bottom: 20%;
   font-size: 16px;
 }
 
@@ -194,7 +197,7 @@ audio {
 }
 
 .index__book-brand > img {
-  height: 24px;
+  height: 42px;
 }
 
 /* The layout is arranged with mobile-first, so the layout is vertical */
@@ -764,6 +767,68 @@ javascript code that handles clicks on the cite-title elements  */
     margin: 0 auto;
   }
 
+  .secondary-content__background-image {
+     background-image: url("../images/index_backgroundV.jpg");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+  }
+
+  .secondary-content__titles {
+    padding-top: 170px;
+    text-align: center;
+  }
+
+  .secondary-content__hide-titles {
+    display: none;
+  }
+
+  .secondary-content__book-type, .secondary-content__book-title, .secondary-content__book-author {
+    text-align: center;
+    color: var(--frontFontColor);
+  }
+
+  .secondary-content__book-type {
+    font-family: handWrite;
+    font-size: 18px;
+    padding-bottom: 0;
+  }
+
+  .secondary-content__book-title  {
+    font-family: frontFont;
+    font-size: 24px;
+    padding-top: 0;
+    margin-bottom: -10px;
+  }
+
+  .secondary-content__book-logo {
+    padding-bottom: 5px;
+  }
+
+  .secondary-content__book-logo > img {
+    height: 18px;
+  }
+
+  .secondary-content__book-author {
+    font-family: frontFont;
+    font-size: 16px;
+  }
+
+  .secondary-content__book-brand {
+    padding-top: 50%;
+  }
+
+  .secondary-content__book-brand > img {
+    height: 24px;
+  }
+
+  .secondary-content__author-background {
+     background-image: url("../images/author_image.jpg");
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat
+  }
+
   .footer__social-author {
     flex-basis: 20%;
     text-align: center;
@@ -817,20 +882,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   .footer__link-image {
     margin: 0 auto;
-  }
-
-  .background-image {
-     background-image: url("../images/prelimsBackground.jpg");
-     background-size: contain;
-     background-position: center;
-     background-repeat: no-repeat
-  }
-
-  .author-background {
-     background-image: url("../images/author_image.jpg");
-     background-size: contain;
-     background-position: center;
-     background-repeat: no-repeat
   }
 
   .featured-item {

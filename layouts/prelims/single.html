@@ -1,5 +1,6 @@
 {{ define "main" }}
-{{ $alternateBackground := "background-image" }}
+{{ $alternateBackground := "secondary-content__background-image" }}
+{{ $hideClass := "" }}
 <section class="main">
   <div class="primary-content custom-scroll">
     <h1>{{ .Title }}</h1>
@@ -7,9 +8,21 @@
   </div>
   <div class="secondary-title"></div>
   {{ if eq .Title "Perfil del Autor" }}
-  {{ $alternateBackground = "author-background" }}
+  {{ $alternateBackground = "secondary-content__author-background" }}
+  {{ $hideClass = "secondary-content__hide-titles" }}
   {{ end }}
   <div class="secondary-content custom-scroll {{ $alternateBackground }}">
+    <div class="secondary-content__titles {{ $hideClass }}">
+      <p class="secondary-content__book-type">Libro Devocional</p>
+      <p class="secondary-content__book-title">#EnCasaConDios</p>
+      <div class="secondary-content__book-logo">
+        <img src="{{ .Site.Params.bookLogo | absURL }}" alt="Book Logo">
+      </div>
+      <p class="secondary-content__book-author">Jimmy Chamorro</p>
+      <div class="secondary-content__book-brand">
+        <img src="{{ .Site.Params.brandLogo | absURL }}" alt="Brand Logo">
+      </div>
+    </div>
   </div>
 </section>
 {{ end }}

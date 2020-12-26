@@ -6,11 +6,11 @@
     <p class="index__book-type">Libro Devocional</p>
     <p class="index__book-title">#EnCasaConDios</p>
     <div class="index__book-logo">
-      <img src="{{ .Site.Params.bookLogo }}" alt="Book Logo">
+      <img src="{{ .Site.Params.bookLogo | absURL }}" alt="Book Logo">
     </div>
     <p class="index__book-author">Jimmy Chamorro</p>
     <div class="index__book-brand">
-      <img src="{{ .Site.Params.brandLogo }}" alt="Brand Logo">
+      <img src="{{ .Site.Params.brandLogo | absURL }}" alt="Brand Logo">
     </div>
   </div>
 </main>
