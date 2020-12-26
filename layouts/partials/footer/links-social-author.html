@@ -3,7 +3,7 @@
     {{ range $name, $path := .Site.Params.socialOptionsAuthor }}
     {{ if $path }}
     <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" target="_blank">
-      {{ partial (print "svg/social/" $name ".svg") (dict "width" 46 "height" 46) }}
+      {{ partial (print "svg/social/" $name ".svg") (dict "width" 36 "height" 36) }}
     </a>
     {{ end }}
     {{ end }}

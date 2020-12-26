@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__image-left">
-    <img src="{{ .Site.Params.headerTopLeftImage | absURL }}" alt="Top-left image">
+    <img src="{{ .Site.Params.headerTopLeftImage | absURL }}" alt="Top-left image" target="_blank">
   </div>
   <div class="header__brand-title">
     <p>{{ .Site.Params.author }}</p>
@@ -10,7 +10,7 @@
     <img class="header__title-decoration" src="{{ .Site.Params.titleDecoration | absURL }}" alt="Title Decoration">
   </div>
   <div class="header__brand-logo">
-    <a class="header__brand-link" href="{{ .Site.Params.brandLink | absURL }}"><img src="{{ .Site.Params.brandLogo | absURL }}" alt="Logo"></img></a>
+    <a class="header__brand-link" href="{{ .Site.Params.brandLink | absURL }}" target="_blank"><img src="{{ .Site.Params.brandLogo | absURL }}" alt="Logo"></img></a>
   </div>
   <div class="header__image-right">
     <img src="{{ .Site.Params.headerTopRightImage | absURL }}" alt="Top-right image">
