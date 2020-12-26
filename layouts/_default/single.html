@@ -5,12 +5,10 @@
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
   {{ $currentPath := .File.Dir }}
-  <div class="series-title">
+  <div class="series">
     <p class="series-title">{{ $serie }}</p>
     {{ with $.GetPage (print $currentPath "_index.md") }}
-    <span class="youtubeplay">
-      <a href="{{ .Params.video | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</a>
-    </span>
+      <a class="series-playbutton" href="{{ .Params.video | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</a>
     {{ end  }}
   </div>
   <div class="primary-content custom-scroll">

@@ -410,13 +410,22 @@ javascript code that handles clicks on the cite-title elements  */
 
 /* The series title will ocupy the whole width of the main container. This element
    just shows the header text of the book. */
-.series-title {
-  display: inline-block;
+.series {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: contentTitle;
-  align-self: center;
   font-weight: bold;
   font-size: 120%;
   padding: 10px;
+}
+
+.series-title {
+
+}
+
+.series-playbutton {
+  padding-top: 10px;
 }
 
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
