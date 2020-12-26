@@ -25,7 +25,13 @@
     <p>
       <img src="{{ .Site.Params.leftAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration">
       {{ .Params.secondary_title | markdownify }}
-      <img src="{{ .Site.Params.rightAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration"></p>
+      <img src="{{ .Site.Params.rightAuxTitleDecoration | absURL }}" alt="Auxiliar Content Decoration">
+    </p>
+      {{ if .Params.audio }}
+      <audio controls controlsList="nodownload" loop metadata>
+        <source src="{{ .Params.audio | absURL }}" type="audio/mpeg">
+      </audio>
+      {{ end }}
     <p>{{ .Params.secondary_content | markdownify }}</p>
   </div>
 </section>
