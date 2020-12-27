@@ -37,12 +37,8 @@ for (let i = 0; i < sidebarListEl.length; i++) {
 
 for (let i = 0; i < serieTitleEl.length; i++) {
   serieTitleEl[i].addEventListener("click", function() {
-    const descriptionBoxEl = this.nextElementSibling;
-    if (descriptionBoxEl.style.display) {
-      descriptionBoxEl.style.display = null;
-    } else {
-      descriptionBoxEl.style.display = "block";
-    }
+    const descriptionBoxEl = document.getElementById("series-description-box");
+    descriptionBoxEl.classList.toggle("description-box--active");
   });
 }
 

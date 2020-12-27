@@ -12,9 +12,9 @@
   {{ if eq (substr $serie 0 1) "0" }}
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
-  <div class="series-title">
+  <div class="series-container">
     <p class="series-title">{{ $serie }}</p>
-    <p class="series-description">{{ $serieDescription }}</p>
+    <p id="series-description-box" class="series-description">{{ $serieDescription }}</p>
   </div>
   <div class="primary-content custom-scroll">
     <h2>{{ .Title }}</h2>
@@ -28,9 +28,9 @@
   </div>
   <div class="secondary-content custom-scroll">
     <p>
-      <img src="{{ .Site.Params.leftAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration">
+      <img class="docoration-images" src="{{ .Site.Params.leftAuxTitleDecoration | absURL }}" alt="Auxiliar Title Decoration">
       {{ .Params.secondary_title | markdownify }}
-      <img src="{{ .Site.Params.rightAuxTitleDecoration | absURL }}" alt="Auxiliar Content Decoration">
+      <img class="docoration-images" src="{{ .Site.Params.rightAuxTitleDecoration | absURL }}" alt="Auxiliar Content Decoration">
     </p>
       {{ if .Params.audio }}
       <audio controls controlsList="nodownload" loop metadata>
