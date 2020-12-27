@@ -3,12 +3,19 @@
 {{ $serie := .Params.serie }}
 {{ $featuredClass := "" }}
 {{ if .Params.featured }}{{ $featuredClass = "featured-post" }}{{ end }}
+{{ $currentPath := .File.Dir }}
+{{ $serieDescription := "Ninguna descripción"}}
+{{ with $.GetPage (print $currentPath "_index.md") }}
+{{ $serieDescription = .Params.description }}{{ end }}
 
 <section class="main {{ $featuredClass }}">
   {{ if eq (substr $serie 0 1) "0" }}
     {{ $serie = substr $serie 1 }} {{/* Removing trainling zero */}}
   {{ end }}
-  <p class="series-title">{{ $serie }}</p>
+  <div class="series-title">
+    <p class="series-title">{{ $serie }}</p>
+    <p class="series-description">{{ $serieDescription }}</p>
+  </div>
   <div class="primary-content custom-scroll">
     <h2>{{ .Title }}</h2>
     {{ if .Params.video }}
