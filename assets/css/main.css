@@ -19,9 +19,10 @@
   --featuredPostColor: #fff7e6;
 
   --calendarItemsFontSize: 13px;
-  --serieFontSizeM: 16px;
-  --serieFontSizeW: 18px;
-  --scrollWidth: 8px;
+  --serieFontSizeV: 16px;
+  --serieFontSizeH: 18px;
+  --scrollWidthV: 4px;
+  --scrollWidthH: 6px;
 }
 
 /* GENERAL RULES */
@@ -139,22 +140,46 @@ audio {
   padding-bottom: 1rem;
 }
 
+.custom-scroll::-webkit-scrollbar-track  {
+  background-color: var(--mainBackground);
+  border-radius: var(--scrollWidthH);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: var(--scrollWidthH);
+  background-color: var(--mainBackground);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  border-radius: var(--scrollWidthH);
+  background-color: #FFF;
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#fff9ed), to(#fff9ed), color-stop(.6,#b3b3b3));
+}
+
+.featured-post {
+    background-color: var(--featuredPostColor);
+}
+
+.featured-item {
+  background-color: var(--featuredBackgroundColor);
+}
+
 /* SPECIFIC RULES */
 
 /* The base container is a css grid, it is located into the baseof.html layout.
    Here is defined the tempaltes areas to build a grid with two columns and three rows */
 
 .index {
-  display: flex;
+  display: flex !important; /* Necessary to overrryde main(grid) style */
   align-items: center;
   justify-content: center;
   background-color: var(--mainBackground);
   background-image: url("../images/index_backgroundV.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   margin: 5px;
-  min-height: 500px;
+  min-height: 480px;
 }
 
 .index__flex-item {
@@ -204,7 +229,6 @@ audio {
 /* The layout is arranged with mobile-first, so the layout is vertical */
 .grid-container {
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 1fr 100px; /* minmax sets the sidebar to shirnk when children does */
   grid-template-areas:
@@ -317,7 +341,7 @@ audio {
 
 .sidebar__toc-serie {
   text-align: left;
-  font-size: var(--serieFontSizeM);
+  font-size: var(--serieFontSizeV);
   font-weight: bold;
   line-height: normal;
   cursor: pointer;
@@ -337,6 +361,19 @@ audio {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.sidebar__toc-calendar-month {
+  padding: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.sidebar__toc-serie-description {
+  padding: 0;
+  font-family: contentItalic;
+  font-size: 14px;
+  text-align: center;
 }
 
 /* This is the calendar as such. */
@@ -366,10 +403,6 @@ audio {
   padding-top: 4px;
   border: 1px var(--calendarItemsBorderColor) solid;
   border-radius: 50%
-}
-
-.featured-item {
-  background-color: var(--featuredBackgroundColor);
 }
 
 /* This child element of the flexbox sidebar, is the container of cite box. */
@@ -535,11 +568,285 @@ javascript code that handles clicks on the cite-title elements  */
   height: 36px;
 }
 
-/* Screens over 750px like tablets and desktops */
+/* Screens over 750px like tablets */
 @media only screen and (min-width: 750px) {
+
   /* GENERAL RULES */
-  body {
+
+  /* Change scroll with for tablets */
+  .custom-scroll::-webkit-scrollbar-track  {
+    border-radius: var(--scrollWidthV);
   }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: var(--scrollWidthV);
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: var(--scrollWidthV);
+  }
+
+  /* SPECIFIC RULES*/
+
+  /* The base container is a css grid, it is located into the baseof.html layout.
+     Here is defined the tempaltes areas to build a grid with two columns and three rows */
+  .grid-container {
+    grid-template-columns: 0.35fr 1fr;
+    grid-template-rows: 100px 1fr 80px;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  .index {
+    background-image: url("../images/index_backgroundV.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    margin: 5px 5px 20px 5px;
+  }
+
+  .index__book-type {
+    font-size: 24px;
+  }
+
+  .index__book-title  {
+    font-size: 48px;
+    margin-bottom: -10px;
+  }
+
+  .index__book-logo {
+    padding-bottom: 20px;
+  }
+
+  .index__book-logo > img {
+    height: 20px;
+  }
+
+  .index__book-author {
+    font-size: 24px;
+  }
+
+  .index__book-brand {
+    padding-top: 30px;
+  }
+
+  .index__book-brand > img {
+    height: 36px;
+  }
+
+  .header {
+    background-image: url("../images/header_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+  }
+
+  .header__image-left {
+    align-self: baseline;
+    display: block;
+    position: relative;
+    top: 0;
+    left:0;
+  }
+
+  .header__image-right {
+    align-self: baseline;
+    display: block;
+    position: relative;
+    top: 0;
+    right:0;
+  }
+
+  .header__brand-title {
+    margin-right: 50px;
+  }
+
+  .header__brand-title > p {
+    font-family: frontFont;
+    font-size: 18px;
+  }
+
+  .header__book-title p {
+    font-family: frontFont;
+    font-size: 36px;
+  }
+
+  .header__book-title > img {
+    display: block;
+    margin: 0 auto;
+    width: 48px;
+  }
+
+  .header__brand-logo {
+    margin-left: 50px;
+  }
+
+  .header__brand-logo img {
+    width: 100%;
+    min-width: 74px !important;
+  }
+
+  .sidebar {
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    padding-left: 10px;
+  }
+
+  .prelims {
+    padding-left: 10px;
+  }
+
+  .prelims > a {
+    display: block;
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .sidebar__toc-icon {
+    padding-top: 10px;
+  }
+
+  .sidebar__toc-icon > p {
+    font-size: 18px;
+  }
+
+  .sidebar__toc {
+    margin-top: 10px;
+  }
+
+  .sidebar__toc-serie {
+    font-size: var(--serieFontSizeV);
+  }
+
+  /* This child element of the flexbox sidebiar, is the container of cite box. */
+  /* It is hidden on mobiles, but it appears when a cite-title is clicked */
+  .sidebar__cite {
+    max-height: 250px;
+    padding: 10px;
+    min-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 5px;
+  }
+
+  .sidebar__cite-button-hide {
+    display: none;
+  }
+
+  /* The main container is a css grid, it is located into the single.html layout.
+     Here is defined the tempaltes areas to build a grid with two columns and two rows.
+     This is the reading area of the Wbook. */
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 35px 1fr;
+    grid-template-areas:
+      "series secondary-content"
+      "primary-content secondary-content";
+    min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+    min-width: 0; /* Necessary in Firefox  */
+    padding: 40px 0 0 0;
+  }
+
+  .series-title {
+    grid-area: series;
+    font-size: 24px;
+    margin: 0 auto;
+  }
+
+  .primary-content {
+    grid-area: primary-content;
+    height: 100%;
+    overflow-y: auto;
+    min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+    padding: 10px 5px 0 5px;
+  }
+
+  .video-playbutton {
+    margin-top: -20px;
+  }
+
+  .secondary-content {
+    grid-area: secondary-content;
+    height: 100%;
+    overflow-y: auto;
+    min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
+    padding: 50px 10px 0 0;
+    margin: 0 10px 0 10px;
+  }
+
+  .secondary-content img {
+    height: 14px;
+    padding: 0 2px;
+    margin: 0 auto;
+  }
+
+  .secondary-content li {
+    line-height: 1.5;
+    font-size: 18px;
+  }
+
+  .footer {
+    padding: 0 5px;
+  }
+
+  .footer__social-author {
+    flex-basis: 20%;
+    text-align: center;
+    padding: 0 30px;
+  }
+
+  .footer__social-author > a {
+    flex-basis: 50%;
+  }
+
+  .footer__book-code {
+    font-size: 14px;
+    flex-basis: 60%;
+    text-align: center;
+  }
+
+  .footer__book-code > p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .footer__book-link-image > img {
+    height: 36px;
+    padding-bottom: 5px;
+  }
+
+  .footer__social-editor {
+    flex-basis: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    padding-top: 40px;
+  }
+
+  .footer__social-editor > a {
+    flex-basis: 50%;
+  }
+
+  .footer__link-images {
+    flex-basis: 30%;
+    text-align: center;
+  }
+
+  .footer__link-image > img {
+    height: 36px;
+    padding-bottom: 5px;
+  }
+
+  .footer__link-image {
+    margin: 0 auto;
+  }
+
+
+/* Screens over 750px like tablets and desktops */
+@media only screen and (min-width: 1025px) {
+  /* GENERAL RULES */
 
   h1, h2 {
     font-size: 20px;
@@ -562,27 +869,36 @@ javascript code that handles clicks on the cite-title elements  */
     font-weight: bold;
   }
 
-  .custom-scroll::-webkit-scrollbar-track  {
-    background-color: var(--mainBackground);
-    border-radius: var(--scrollWidth);
-  }
-
-  .custom-scroll::-webkit-scrollbar {
-    width: var(--scrollWidth);
-    background-color: var(--mainBackground);
-  }
-
-  .custom-scroll::-webkit-scrollbar-thumb {
-    border-radius: var(--scrollWidth);
-    background-color: #FFF;
-    background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#fff9ed), to(#fff9ed), color-stop(.6,#b3b3b3));
-  }
-
   .center-italic {
     padding: 0 5rem 2rem 5rem;
   }
 
+  /* Change scroll with for tablets */
+  .custom-scroll::-webkit-scrollbar-track  {
+    border-radius: var(--scrollWidthH);
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: var(--scrollWidthH);
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: var(--scrollWidthH);
+  }
+
   /* SPECIFIC RULES */
+
+  /* The base container is a css grid, it is located into the baseof.html layout.
+     Here is defined the tempaltes areas to build a grid with two columns and three rows */
+  .grid-container {
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-rows: 120px 1fr 100px;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
   .index {
     background-image: url("../images/index_background.jpg");
     background-position: center;
@@ -617,17 +933,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   .index__book-brand > img {
     height: 42px;
-  }
-
-  /* The base container is a css grid, it is located into the baseof.html layout.
-     Here is defined the tempaltes areas to build a grid with two columns and three rows */
-  .grid-container {
-    grid-template-columns: 0.25fr 1fr;
-    grid-template-rows: 120px 1fr 100px;
-    grid-template-areas:
-      "header header"
-      "sidebar main"
-      "footer footer";
   }
 
   /* The header is a flex container, with the elements separated to the extremes, it is
@@ -689,7 +994,7 @@ javascript code that handles clicks on the cite-title elements  */
     height: 100%;
     max-height: 100%;
     min-height: 0;
-    padding: 0 0 0 50px;
+    padding-left: 50px;
   }
 
   .prelims {
@@ -715,7 +1020,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .sidebar__toc-serie {
-    font-size: var(--serieFontSizeW);
+    font-size: var(--serieFontSizeH);
   }
 
   /* This child element of the flexbox sidebiar, is the container of cite box. */
@@ -748,22 +1053,18 @@ javascript code that handles clicks on the cite-title elements  */
     padding: 20px 0 0 0;
   }
 
-  .featured-post {
-      background-color: var(--featuredPostColor);
-  }
-
   .series-title {
+    grid-area: series;
     font-size: 36px;
     margin: 0 auto;
   }
-
 
   .primary-content {
     grid-area: primary-content;
     height: 100%;
     overflow-y: auto;
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
-    margin: 0 0 0 20px;
+    margin-left: 20px;
     padding: 0 10px 0 10px;
   }
 
@@ -781,6 +1082,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .secondary-content img {
+    height: 24px;
     padding: 0 5px;
     margin: 0 auto;
   }
@@ -852,14 +1154,14 @@ javascript code that handles clicks on the cite-title elements  */
      background-repeat: no-repeat
   }
 
+  .footer {
+    padding: 0 10px;
+  }
+
   .footer__social-author {
     flex-basis: 20%;
     text-align: center;
     padding: 0 50px;
-  }
-
-  .footer {
-    padding: 0 10px;
   }
 
   .footer__social-author > a {
@@ -906,9 +1208,4 @@ javascript code that handles clicks on the cite-title elements  */
   .footer__link-image {
     margin: 0 auto;
   }
-
-  .featured-item {
-    background-color: var(--featuredBackgroundColor);
-  }
-
 }
