@@ -1,4 +1,5 @@
 /* Wbook CSS */
+/* TODO: Simplify styles in media queries, there are many of them that could be repeated. */
 
 /* VARIABLES */
 :root {
@@ -162,6 +163,10 @@ audio {
 
 .featured-item {
   background-color: var(--featuredBackgroundColor);
+}
+
+.hide-class {
+  display: none;
 }
 
 /* SPECIFIC RULES */
@@ -497,6 +502,7 @@ javascript code that handles clicks on the cite-title elements  */
 /* The primary-content container will receive the {{ .Content }} variable in Hugo */
 .primary-content {
   padding: 10px;
+  width: 100%;
 }
 
 .video-playbutton {
@@ -514,6 +520,23 @@ javascript code that handles clicks on the cite-title elements  */
 }
 
 .video-responsive iframe, .video-responsive object, .video-responsive embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.video-responsive2 {
+  height: 0;
+  border: 1px solid lightgray; /* To show a rectangle on page first load */
+  overflow: hidden;
+  padding-bottom: 56.5%;
+  position: relative;
+  transition: padding 0.3s ease-out;
+}
+
+.video-responsive2 iframe, .video-responsive2 object, .video-responsive2 embed {
   height: 100%;
   left: 0;
   position: absolute;
@@ -587,15 +610,9 @@ javascript code that handles clicks on the cite-title elements  */
   height: 24px;
 }
 
-.secondary-content__author-image, .secondary-content__book-image {
-  position: relative;
-  padding-top: 25%;
+.secondary-content__background {
   width: 100%;
   height: auto;
-}
-
-.secondary-content__hide-titles, .secondary-content__hide-author, .secondary-content__hide-cover {
-  display: none;
 }
 
 .footer {
@@ -668,6 +685,10 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 18%;
   }
+
+  .header__brand-title {
+    padding-right: 10px;
+  }
 }
 
 @media only screen and (min-width: 500px) {
@@ -700,6 +721,10 @@ javascript code that handles clicks on the cite-title elements  */
 
   .featured-item {
     background-color: var(--featuredBackgroundColor);
+  }
+
+  .hide-class {
+    display: block;
   }
 
   /* SPECIFIC RULES*/
@@ -899,7 +924,7 @@ javascript code that handles clicks on the cite-title elements  */
     height: 100%;
     overflow-y: auto;
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
-    padding: 50px 10px 0 0;
+    padding: 50px 20px 0 10px;
   }
 
   .decoration-images {
@@ -913,21 +938,8 @@ javascript code that handles clicks on the cite-title elements  */
     font-size: 18px;
   }
 
-  .secondary-content__titles {
-    padding-top: 20%;
-    text-align: center;
-  }
-
-  .secondary-content__author-image {
-    padding-top: 25%;
-  }
-
-  .secondary-content__hide-titles {
-    display: none;
-  }
-
-  .secondary-content__hide-author {
-    display: none;
+  .secondary-content__background {
+    padding-top: 35%;
   }
 
   .footer {
@@ -990,11 +1002,31 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 37%;
   }
+
+  .secondary-content__background {
+    padding-top: 30%;
+  }
+
+  .secondary-content {
+    padding: 50px 20px 0 10px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .index {
+    background-image: url("../images/index_backgroundNarrow.jpg");
+  }
+
   .series-description {
     right: 38%;
+  }
+
+  .secondary-content__background {
+    padding-top: 28%;
+  }
+
+  .secondary-content {
+    padding: 50px 20px 0 20px;
   }
 }
 
@@ -1061,7 +1093,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index {
-    background-image: url("../images/index_background.jpg");
+    background-image: url("../images/index_backgroundNarrow.jpg");
     background-position: center;
     background-size: 100% 100%;
     margin: 10px;
@@ -1249,7 +1281,7 @@ javascript code that handles clicks on the cite-title elements  */
     width: auto;
     overflow-y: auto;
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
-    padding: 50px 20px 0 0;
+    padding: 0 0 0 20px;
     margin: 0 50px 0 20px;
   }
 
@@ -1263,59 +1295,8 @@ javascript code that handles clicks on the cite-title elements  */
     font-size: 18px;
   }
 
-  .secondary-content__background-image {
-     background-image: url("../images/index_backgroundV.jpg");
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: contain;
-  }
-
-  .secondary-content__titles {
-    padding-top: 20%;
-    text-align: center;
-  }
-
-  .secondary-content__book-type, .secondary-content__book-title, .secondary-content__book-author {
-    text-align: center;
-    color: var(--frontFontColor);
-  }
-
-  .secondary-content__book-type {
-    font-family: handWrite;
-    font-size: 18px;
-    padding-bottom: 0;
-  }
-
-  .secondary-content__book-title  {
-    font-family: frontFont;
-    font-size: 24px;
-    padding-top: 0;
-    margin-bottom: -10px;
-  }
-
-  .secondary-content__book-logo {
-    padding-bottom: 5px;
-  }
-
-  .secondary-content__book-logo > img {
-    height: 18px;
-  }
-
-  .secondary-content__book-author {
-    font-family: frontFont;
-    font-size: 16px;
-  }
-
-  .secondary-content__book-brand {
-    padding-top: 50%;
-  }
-
-  .secondary-content__book-brand > img {
-    height: 24px;
-  }
-
-  .secondary-content__hide-titles, .secondary-content__hide-author, .secondary-content__hide-cover {
-    display: none;
+  .secondary-content__background {
+    padding-top: 55%;
   }
 
   .footer {
@@ -1378,17 +1359,45 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 43%;
   }
+
+  .secondary-content__background {
+    padding-top: 55%;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
   .series-description {
     right: 44%;
   }
+
+  .index {
+    background-image: url("../images/index_backgroundWide.jpg");
+  }
+
+  .secondary-content__background {
+    padding-top: 50%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .secondary-content__background {
+    padding-top: 45%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .secondary-content__background {
+    padding-top: 40%;
+  }
 }
 
 @media only screen and (min-width: 1600px) {
   .series-description {
     right: 45%;
+  }
+
+  .secondary-content__background {
+    padding-top: 33%;
   }
 }
 
@@ -1397,3 +1406,8 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 46.5%;
   }
+
+  .secondary-content__background {
+    padding-top: 15%;
+  }
+}

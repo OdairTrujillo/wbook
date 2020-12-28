@@ -1,33 +1,21 @@
 {{ define "main" }}
-{{ $hideCover := "" }}
-{{ $hideTitles := "" }}
-{{ $hideAuthor := "" }}
+{{ $hideClass := "" }}
 <section class="main">
   <div class="primary-content custom-scroll">
     <h1>{{ .Title }}</h1>
+    {{ if .Params.video }}
+    <div class="video-responsive2">
+      <iframe src="{{ .Params.video | safeURL }}" frameborder="0" encrypted-media allowfullscreen></iframe>
+    </div>
+    {{ end }}
     <p>{{ .Content }}</p>
   </div>
-  <div class="secondary-title"></div>
-  {{ if eq .Title "Perfil del autor" }}
-    {{ $hideTitles = "secondary-content__hide-titles" }}
-    {{ $hideCover = "secondary-content__hide-cover" }}
-  {{ else }}
-    {{ $hideAuthor = "secondary-content__hide-author" }}
+  {{ if .Params.hide_secondary_content }}
+    {{ $hideClass = "hide-class" }}
   {{ end }}
-  <div class="secondary-content custom-scroll">
-    <img class="secondary-content__book-image {{ $hideCover }}" src="{{ .Params.Image | absURL }}" alt="Book Cover">
-    <img class="secondary-content__author-image {{ $hideAuthor }}" src="{{ .Params.Image | absURL }}" alt="Author Image">
-    <div class="secondary-content__titles {{ $hideTitles }}">
-      <p class="secondary-content__book-type">Libro Devocional</p>
-      <p class="secondary-content__book-title">#EnCasaConDios</p>
-      <div class="secondary-content__book-logo">
-        <img src="{{ .Site.Params.bookLogo | absURL }}" alt="Book Logo">
-      </div>
-      <p class="secondary-content__book-author">Jimmy Chamorro</p>
-      <div class="secondary-content__book-brand">
-        <img src="{{ .Site.Params.brandLogo | absURL }}" alt="Brand Logo">
-      </div>
-    </div>
+  <div class="secondary-title {{ $hideClass }}"></div>
+  <div class="secondary-content custom-scroll {{ $hideClass }}">
+    <img class="secondary-content__background" src="{{ .Params.Image | absURL }}" alt="Background Image">
   </div>
 </section>
 {{ end }}
