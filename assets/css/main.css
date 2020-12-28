@@ -1018,6 +1018,7 @@ javascript code that handles clicks on the cite-title elements  */
   .footer__link-image {
     margin: 0 auto;
   }
+}
 
 /* Adjusting series-description position for several laptos screens */
 @media only screen and (min-width: 900px) {
