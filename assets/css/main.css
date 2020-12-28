@@ -219,7 +219,7 @@ audio {
 
 .index__book-author {
   font-family: frontFont;
-  padding-bottom: 20%;
+  padding-bottom: 40%;
   font-size: 16px;
 }
 
@@ -667,12 +667,26 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 5%;
   }
+
+  .index__book-author {
+    font-family: frontFont;
+    padding-bottom: 30%;
+  }
+
+  .index__book-brand {
+    padding-top: 5%;
+  }
+
+  .index__book-brand > img {
+    height: 22px;
+  }
 }
 
 @media only screen and (min-width: 300px) {
   .series-description {
     right: 11%;
   }
+
 }
 
 @media only screen and (min-width: 350px) {
@@ -694,6 +708,14 @@ javascript code that handles clicks on the cite-title elements  */
 @media only screen and (min-width: 500px) {
   .series-description {
     right: 27%;
+  }
+
+  .index {
+    background-image: url("../images/index_backgroundNarrow.jpg") !important;
+  }
+
+  .index__book-author {
+    padding-bottom: 15%;
   }
 }
 
@@ -741,14 +763,14 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index {
-    background-image: url("../images/index_backgroundV.jpg");
+    background-image: url("../images/index_backgroundV.jpg") !important;
     background-position: center;
     background-size: 100% 100%;
     margin: 5px 5px 20px 5px;
   }
 
   .index__book-type {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .index__book-title  {
@@ -769,7 +791,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index__book-brand {
-    padding-top: 30px;
+    padding-top: 5%;
   }
 
   .index__book-brand > img {
@@ -1010,9 +1032,25 @@ javascript code that handles clicks on the cite-title elements  */
   .secondary-content {
     padding: 50px 20px 0 10px;
   }
+
+  .index {
+    background-image: url("../images/index_backgroundV.jpg");
+  }
+
+  .index__book-type {
+    font-size: 36px;
+  }
+
+  .index__book-author {
+    padding-bottom: 30%;
+  }
+
+  .index__book-brand img {
+    height: 48px;
+  }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
   .index {
     background-image: url("../images/index_backgroundNarrow.jpg");
   }
@@ -1109,7 +1147,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index__book-logo {
-    padding-bottom: 20px;
+    padding-bottom: 5%;
   }
 
   .index__book-logo > img {
@@ -1118,10 +1156,11 @@ javascript code that handles clicks on the cite-title elements  */
 
   .index__book-author {
     font-size: 24px;
+    padding-bottom: 10%;
   }
 
   .index__book-brand {
-    padding-top: 30px;
+    padding-top: 5%;
   }
 
   .index__book-brand > img {
