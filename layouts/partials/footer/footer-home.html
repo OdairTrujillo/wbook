@@ -10,8 +10,12 @@
     <a class="footer__link-image" href="{{ .Site.Params.EditorLink | safeURL }}" target="_blank">
       <img src="{{ .Site.Params.editorLogo | absURL }}" alt="Editor Logo">
     </a>
-    <a class="footer__link-image" href="{{ .Site.Params.brandLink | safeURL }}" target="_blank">
-      {{ partial (print "svg/social/" "youtube.svg") (dict "width" 48 "height" 48) }}
+    {{ range $name, $path := .Site.Params.socialOptionsEditor }}
+    {{ if $path }}
+    <a class="footer__link-image" href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" target="_blank">
+      {{ partial (print "svg/social/" $name ".svg") (dict "width" 48 "height" 48) }}
     </a>
+    {{ end }}
+    {{ end }}
   </div>
 </footer>
