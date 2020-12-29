@@ -19,7 +19,7 @@
   <div class="primary-content custom-scroll">
     <h2>{{ .Title }}</h2>
     {{ if .Params.video }}
-    <p class="video-playbutton" href="{{ . | safeURL }}" target="_blank">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</p>
+    <p class="video-playbutton">{{ partial (print "svg/social/" "youtubeplay.svg") (dict "width" 36 "height" 36) }}</p>
     <div id="video-box" class="video-responsive">
       <iframe src="{{ .Params.video | safeURL }}" frameborder="0" encrypted-media allowfullscreen></iframe>
     </div>
