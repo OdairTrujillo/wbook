@@ -10,7 +10,7 @@
     {{ end }}
     <p>{{ .Content }}</p>
   </div>
-  {{ if .Params.hide_secondary_content }}
+  {{ if .Params.hide_content_image }}
     {{ $hideClass = "hide-class" }}
   {{ end }}
   <div class="secondary-title {{ $hideClass }}"></div>
