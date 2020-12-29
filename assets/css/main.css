@@ -564,6 +564,11 @@ javascript code that handles clicks on the cite-title elements  */
   font-size: 16px;
 }
 
+.secondary-content__background {
+  width: 100%;
+  height: auto;
+}
+
 .footer {
   grid-area: footer;
   display: flex;
@@ -635,7 +640,6 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 11%;
   }
-
 }
 
 @media only screen and (min-width: 350px) {
@@ -1245,11 +1249,11 @@ javascript code that handles clicks on the cite-title elements  */
     transform: translateX(-800px);
   }
 
- .description-box--active {
-   visibility: visible;
-   z-index: 1;
-   transform: translateX(0);
- }
+  .description-box--active {
+    visibility: visible;
+    z-index: 1;
+    transform: translateX(0);
+   }
 
   .primary-content {
     grid-area: primary-content;
@@ -1356,7 +1360,7 @@ javascript code that handles clicks on the cite-title elements  */
   }
 
   .index {
-    background-image: url("../images/index_backgroundWide.jpg");
+    background-image: url("../images/index_backgroundWide.jpg") !important;
   }
 
   .secondary-content__background {
