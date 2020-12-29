@@ -2,7 +2,7 @@
   {{ partial "footer/links-social-author.html" . }}
   <div class="footer__book-code">
     <p>{{ .Site.Params.ISBN }}</p>
-    <a class="footer__book-link-image" href="{{ .Site.Params.downloadLink | safeURL }}" target="_blank">
+    <a class="footer__book-link-image" href="{{ .Site.Params.downloadLink | absURL }}" target="_blank">
       <img src="{{ .Site.Params.downloadImage | absURL }}" alt="Download Image">
     </a>
   </div>
