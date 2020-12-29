@@ -137,7 +137,7 @@ audio {
 
 .center-italic {
   text-align: center;
-  font-family: italic;
+  font-family: contentItalic;
   padding-bottom: 1rem;
 }
 
@@ -562,57 +562,6 @@ javascript code that handles clicks on the cite-title elements  */
 .secondary-content li {
   line-height: 1.25;
   font-size: 16px;
-}
-
-.secondary-content__titles {
-  position: relative;
-  margin-top: -140%;
-  text-align: center;
-}
-
-.secondary-content__book-type, .secondary-content__book-title, .secondary-content__book-author {
-  text-align: center;
-  color: var(--frontFontColor);
-}
-
-.secondary-content__book-type {
-  font-family: handWrite;
-  font-size: 18px;
-  padding-bottom: 0;
-}
-
-.secondary-content__book-title  {
-  font-family: frontFont;
-  font-size: 24px;
-  padding-top: 0;
-  margin-bottom: -5px;
-}
-
-.secondary-content__book-logo {
-  padding-bottom: 5px;
-}
-
-.secondary-content__book-logo > img {
-  height: 18px;
-}
-
-.secondary-content__book-author {
-  font-family: frontFont;
-  font-size: 16px;
-  padding-top: 40px;
-}
-
-.secondary-content__book-brand {
-  padding-top: 40%;
-}
-
-.secondary-content__book-brand > img {
-  height: 24px;
-}
-
-.secondary-content__background {
-  width: 100%;
-  height: auto;
 }
 
 .footer {
@@ -1335,10 +1284,6 @@ javascript code that handles clicks on the cite-title elements  */
     font-size: 18px;
   }
 
-  .secondary-content__background {
-    padding-top: 55%;
-  }
-
   .footer {
     padding: 0 10px;
   }
@@ -1434,6 +1379,10 @@ javascript code that handles clicks on the cite-title elements  */
 @media only screen and (min-width: 1600px) {
   .series-description {
     right: 45%;
+  }
+
+  .index__book-author {
+    padding-bottom: 5%;
   }
 
   .secondary-content__background {
