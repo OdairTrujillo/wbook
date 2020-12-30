@@ -73,7 +73,7 @@ body {
 h1, h2 {
   font-size: 16px;
   text-align: center;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0;
 }
 
 h3, h4 {
@@ -640,6 +640,10 @@ javascript code that handles clicks on the cite-title elements  */
   .series-description {
     right: 11%;
   }
+
+  .footer__book-code > p {
+    font-size: 13px;
+  }
 }
 
 @media only screen and (min-width: 350px) {
@@ -870,6 +874,11 @@ javascript code that handles clicks on the cite-title elements  */
     margin: 0 auto;
   }
 
+  .series-title {
+    font-size: 32px;
+    padding-right: 10px;
+  }
+
   .series-description {
     right: 33%;
     z-index: -1;
@@ -929,17 +938,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   .footer__social-author > a {
     flex-basis: 50%;
-  }
-
-  .footer__book-code {
-    font-size: 14px;
-    flex-basis: 60%;
-    text-align: center;
-  }
-
-  .footer__book-code > p {
-    text-align: center;
-    font-size: 14px;
   }
 
   .footer__book-link-image > img {
@@ -1002,6 +1000,10 @@ javascript code that handles clicks on the cite-title elements  */
   .index__book-brand img {
     height: 48px;
   }
+
+  .footer__book-code > p {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
@@ -1028,7 +1030,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   h1, h2 {
     font-size: 20px;
-    padding: 1.5rem 0.5rem 2rem 0.5rem;
   }
 
   h3, h4 {
@@ -1243,6 +1244,10 @@ javascript code that handles clicks on the cite-title elements  */
     margin: 0 auto;
   }
 
+  .series-title {
+    padding-left: 30px;
+  }
+
   .series-description {
     right: 42%;
     z-index: -1;
@@ -1262,10 +1267,6 @@ javascript code that handles clicks on the cite-title elements  */
     min-height: 0; /* Overriding min-height: auto; to forbid children to expand */
     margin-left: 20px;
     padding: 0 10px 0 10px;
-  }
-
-  .video-playbutton {
-    margin-top: -40px;
   }
 
   .secondary-content {
@@ -1300,17 +1301,6 @@ javascript code that handles clicks on the cite-title elements  */
 
   .footer__social-author > a {
     flex-basis: 50%;
-  }
-
-  .footer__book-code {
-    font-size: 14px;
-    flex-basis: 60%;
-    text-align: center;
-  }
-
-  .footer__book-code > p {
-    text-align: center;
-    font-size: 14px;
   }
 
   .footer__book-link-image > img {
