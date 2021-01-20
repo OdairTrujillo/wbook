@@ -95,6 +95,24 @@ sup {
   font-weight: bold;
 }
 
+ol {
+  padding-left: 15px;
+}
+
+ol > li {
+  text-align: justify !important;
+  line-height: 1.5 !important;
+}
+
+ul {
+  padding-left: 15px;
+}
+
+ul > li {
+  text-align: justify !important;
+  line-height: 1.5 !important;
+}
+
 /* disable underline in links */
 a {
   text-decoration: none;
